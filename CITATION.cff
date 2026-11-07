@@ -10,7 +10,7 @@ version: 1.0.0
 date-released: 2026-11-07
 license: MIT
 repository-code: "https://github.com/rohanvinaik/refining-hardness-after-eth"
-# doi: 10.5281/zenodo.XXXXXXX   # uncomment and fill in once Zenodo issues the DOI
+doi: 10.5281/zenodo.24040662
 preferred-citation:
   type: unpublished
   title: "Refining Hardness after ETH: Task-Relevant Distinctions and the Cost of Exact Counting"
@@ -21,4 +21,4 @@ preferred-citation:
   year: 2026
   month: 11
   notes: "Preprint with Lean 4 development."
-  # doi: 10.5281/zenodo.XXXXXXX
+  doi: 10.5281/zenodo.24040662
