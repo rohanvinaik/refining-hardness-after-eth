@@ -4,7 +4,7 @@
 
 Rohan Vinaik, November 2026.
 
-DOI: [10.5281/zenodo.24040662](https://doi.org/10.5281/zenodo.24040662)
+DOI: [10.5281/zenodo.24040661](https://doi.org/10.5281/zenodo.24040661)
 
 This repository holds a preprint, a four-page explanatory note, and the Lean 4
 development that checks their stated results.
@@ -84,7 +84,7 @@ See `CITATION.cff`.
 
 ```
 Rohan Vinaik. Refining Hardness after ETH: Task-Relevant Distinctions and the
-Cost of Exact Counting. Preprint, November 2026. https://doi.org/10.5281/zenodo.24040662
+Cost of Exact Counting. Preprint, November 2026. https://doi.org/10.5281/zenodo.24040661
 ```
 
 ## Sources discussed
