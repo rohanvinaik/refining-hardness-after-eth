@@ -11,10 +11,9 @@ development that checks their stated results.
 
 | Path | Contents |
 | --- | --- |
-| `paper/` | *Refining Hardness after ETH* (17 pages): PDF, standalone LaTeX, bibliography, and the TeX source archive with the Lean sources as ancillary files. |
+| `paper/` | *Refining Hardness after ETH* (17 pages): PDF, standalone LaTeX and bibliography. |
 | `note/` | *What Remains Hard after ETH?* (4 pages): the same set for the short note. |
 | `lean_proofs/` | The Lean 4 project. `ETHResponse.lean` is the entry point; `ETHResponse/Audit.lean` is the axiom audit; `CORRESPONDENCE.md` maps the theorem endpoints to the manuscript. |
-| `verification/` | Records of the clean-extraction rebuild of both documents and of the packaged archive. |
 
 ## What the paper proves
 
@@ -77,9 +76,7 @@ A clean build with the Mathlib cache takes a few minutes on a laptop.
 ## Rebuilding the documents
 
 Each manuscript compiles on its own with pdfLaTeX, XeLaTeX or Tectonic; the
-`.bbl` files are included, so no bibliography processor is required. The
-`arxiv_source.zip` in each directory is the source-only archive, with the Lean
-sources under `anc/lean_proofs/`, in the layout arXiv expects.
+`.bbl` files are included, so no bibliography processor is required.
 
 ## Citing
 
