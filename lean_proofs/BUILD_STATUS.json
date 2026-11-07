@@ -7,7 +7,7 @@
     "Quot.sound",
     "propext"
   ],
-  "build_log_sha256": "50678163c4c448014af76dbc4030610f1a35cd2170427450281b43cbdaf51de2",
+  "build_log_sha256": "4724b6fcb3144855ef07508a860d2051545f37154570fd2fb3e25d7716e87846",
   "dependency_cache_setup_needed": false,
   "dependency_revisions": [
     {
@@ -48,7 +48,7 @@
     }
   ],
   "entrypoint": "ETHResponse",
-  "finished_at_utc": "2026-11-07T15:00:14.795429+00:00",
+  "finished_at_utc": "2026-11-07T17:56:32.852501+00:00",
   "fresh_export_build": {
     "command": [
       "lake",
@@ -75,7 +75,7 @@
   "schema_version": 1,
   "source_file_count": 33,
   "source_manifest_sha256": "75fd48f3af4ee1627aa1942f42d411e7e4d255705a2ccea35b66d956f949e8a0",
-  "started_at_utc": "2026-11-07T14:54:46.059809+00:00",
+  "started_at_utc": "2026-11-07T17:51:15.281518+00:00",
   "status": "passed",
   "warnings": [],
   "warnings_fail_build": true,

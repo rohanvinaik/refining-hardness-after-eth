@@ -756,14 +756,13 @@ the exact multiplicities and the binomial normalization. \(\square\)
 
 These are precisely the transposed eigenvector rows in the proof of
 OpenAI's auxiliary-matrix lemma \citep[Lemma
-\texttt{lem:\allowbreak{}swaps-\allowbreak{}matrix}]{O26}. In the
-source, \(J\) is a consecutive window and \(f\) its
-degree-less-than-\(|J|\) parity interpolant. Our formal artifact
-constructs such an interpolant, proves its values, degree and
-uniqueness, and composes it with the selected-row map and Theorem 5.1;
-an integer window is handled by retaining its intersection with the
-possible eigenlevels. Where the source writes its interpolant with a
-Newton binomial formula, the formal application uses the unique
+\texttt{lem:swaps-matrix}]{O26}. In the source, \(J\) is a consecutive
+window and \(f\) its degree-less-than-\(|J|\) parity interpolant. Our
+formal artifact constructs such an interpolant, proves its values,
+degree and uniqueness, and composes it with the selected-row map and
+Theorem 5.1; an integer window is handled by retaining its intersection
+with the possible eigenlevels. Where the source writes its interpolant
+with a Newton binomial formula, the formal application uses the unique
 interpolation characterization instead.
 
 This local map \(C_J=C^{\mathcal B}\) is distinct from the formula's
@@ -896,10 +895,10 @@ case in which the refined near-exponential scale persists.
 reproducibility}\label{formalization-and-reproducibility}
 
 Our Lean 4 development uses Mathlib \citep{Lean4, Mathlib20}. Its public
-entry point is \texttt{ETHResponse.\allowbreak{}lean}. Its selected
-import closure contains the task-certificate and transcript results, the
-width-two CNF construction, operational bit reading, finite observation
-simulation, rational Hermite recovery, the swap basis and spectrum, the
+entry point is \texttt{ETHResponse.lean}. Its selected import closure
+contains the task-certificate and transcript results, the width-two CNF
+construction, operational bit reading, finite observation simulation,
+rational Hermite recovery, the swap basis and spectrum, the
 measurement-rank implication, and both the finite and the eventual
 enumeration bounds.
 
@@ -921,8 +920,8 @@ project's mathematical namespaces, private helpers included. It permits
 only propositional extensionality, classical choice and quotient
 soundness. An export records source hashes, pinned dependency revisions,
 build results and the freshly measured declaration count.
-\texttt{CORRESPONDENCE.\allowbreak{}md} maps the paper's mathematical
-statements to named theorem endpoints and their application hypotheses.
+\texttt{CORRESPONDENCE.md} maps the paper's mathematical statements to
+named theorem endpoints and their application hypotheses.
 
 So the formalization establishes the mathematical implications stated
 here, and those alone. \#SH itself, its validity, an end-to-end
@@ -931,11 +930,9 @@ lower bound from the point-access example all lie outside it. Each
 accompanying TeX source archive ships the selected Lean project in
 \texttt{anc/\allowbreak{}lean\_\allowbreak{}proofs/\allowbreak{}}, with
 its correspondence document, toolchain and dependency lockfile.
-\texttt{SOURCE\_\allowbreak{}MANIFEST.\allowbreak{}json} identifies the
-proof snapshot by file hashes. The build and axiom receipts bind their
-results to that snapshot. A combined editable package holds both
-manuscripts, the public bibliography and the rebuild tools, whose
-instructions regenerate the PDFs and source packages from that layout.
+\texttt{SOURCE\_MANIFEST.json} identifies the proof snapshot by file
+hashes. The build and axiom receipts bind their results to that
+snapshot.
 
 \appendix
 
@@ -983,13 +980,12 @@ Lean theorem
 \bottomrule\noalign{}
 \endlastfoot
 Completed transcript is a certificate &
-\texttt{transcript\_\allowbreak{}certificate} \\
+\texttt{transcript\_certificate} \\
 Transcript query lower bound &
 \texttt{transcript\_\allowbreak{}query\_\allowbreak{}lower\_\allowbreak{}bound} \\
 Width-two CNF count separation &
 \texttt{SingletonCNF.\allowbreak{}singleton\_\allowbreak{}count\_\allowbreak{}complexity} \\
-Explicit-input acquisition ceiling &
-\texttt{read\_\allowbreak{}all\_\allowbreak{}operational} \\
+Explicit-input acquisition ceiling & \texttt{read\_all\_operational} \\
 Finite weighted observation simulation &
 \texttt{weighted\_\allowbreak{}observation\_\allowbreak{}simulation} \\
 Ambient Hermite threshold &
