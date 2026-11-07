@@ -5,6 +5,7 @@ title: "Refining Hardness after ETH: paper, note, and Lean 4 development"
 authors:
   - family-names: Vinaik
     given-names: Rohan
+    orcid: "https://orcid.org/0009-0001-4557-2059"
 version: 1.0.0
 date-released: 2026-11-07
 license: MIT
@@ -16,6 +17,7 @@ preferred-citation:
   authors:
     - family-names: Vinaik
       given-names: Rohan
+      orcid: "https://orcid.org/0009-0001-4557-2059"
   year: 2026
   month: 11
   notes: "Preprint with Lean 4 development."
