@@ -1,0 +1,137 @@
+\begin{thebibliography}{17}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Alman and Williams(2015)]{AW15}
+Josh Alman and Ryan Williams.
+\newblock Probabilistic polynomials and {Hamming} nearest neighbors.
+\newblock In \emph{2015 IEEE 56th annual symposium on foundations of computer
+  science}, pages 136--150. IEEE, 2015.
+\newblock \doi{10.1109/FOCS.2015.18}.
+\newblock URL \url{https://arxiv.org/abs/1507.05106}.
+
+\bibitem[Aspnes et~al.(1994)Aspnes, Beigel, Furst, and Rudich]{ABFR94}
+James Aspnes, Richard Beigel, Merrick Furst, and Steven Rudich.
+\newblock The expressive power of voting polynomials.
+\newblock \emph{Combinatorica}, 14\penalty0 (2):\penalty0 135--148, 1994.
+\newblock \doi{10.1007/BF01215346}.
+\newblock URL
+  \url{https://www.cs.yale.edu/homes/aspnes/papers/stoc91voting.pdf}.
+
+\bibitem[Baillon et~al.(2016)Baillon, Cominetti, and Vaisman]{BCV16}
+Jean-Bernard Baillon, Roberto Cominetti, and José Vaisman.
+\newblock A sharp uniform bound for the distribution of sums of {Bernoulli}
+  trials.
+\newblock \emph{Combinatorics, Probability and Computing}, 25\penalty0
+  (3):\penalty0 352--361, 2016.
+\newblock \doi{10.1017/S0963548315000127}.
+\newblock URL \url{https://arxiv.org/abs/0806.2350}.
+
+\bibitem[Brito(2026)]{Brito26}
+Carlos~Stein Brito.
+\newblock The partition exponent in the graded pieces of the {Claude} {3-SAT}
+  algorithm is optimal for pieces of that shape, 2026.
+\newblock URL \url{https://hexagonmath.org/2610.00692v1}.
+\newblock Public preprint, hexagon:2610.00692v1, manuscript dated 30 October
+  2026.
+
+\bibitem[Buhrman and Wolf(2002)]{BW02}
+Harry Buhrman and Ronald~de Wolf.
+\newblock Complexity measures and decision tree complexity: {A} survey.
+\newblock \emph{Theoretical Computer Science}, 288\penalty0 (1):\penalty0
+  21--43, 2002.
+\newblock \doi{10.1016/S0304-3975(01)00144-X}.
+\newblock URL \url{https://homepages.cwi.nl/~rdewolf/publ/qc/dectree.pdf}.
+
+\bibitem[Charikar et~al.(2002)Charikar, Fagin, Guruswami, Kleinberg, Raghavan,
+  and Sahai]{CFGKRS02}
+Moses Charikar, Ronald Fagin, Venkatesan Guruswami, Jon Kleinberg, Prabhakar
+  Raghavan, and Amit Sahai.
+\newblock Query strategies for priced information.
+\newblock \emph{Journal of Computer and System Sciences}, 64\penalty0
+  (4):\penalty0 785--819, 2002.
+\newblock \doi{10.1006/jcss.2002.1828}.
+
+\bibitem[{Claude}(2026)]{Ant26}
+{Claude}.
+\newblock A {$2^{o(n)}$} time algorithm for {3-SAT}, 2026.
+\newblock URL \url{https://hexagonmath.org/2610.00577v1}.
+\newblock Anthropic. Preprint dated 26 October 2026; hexagon:2610.00577v1,
+  deposited 27 October 2026.
+
+\bibitem[Dias and Lima(2026)]{DL26}
+Fabio Dias and Yvens Lima.
+\newblock Limits and constants of {OpenAI}'s claimed {ETH} refutation, 2026.
+\newblock URL \url{https://arxiv.org/abs/2611.00517v1}.
+\newblock Public preprint, arXiv:2611.00517v1, 31 October 2026.
+
+\bibitem[Impagliazzo et~al.(2001)Impagliazzo, Paturi, and Zane]{IPZ01}
+Russell Impagliazzo, Ramamohan Paturi, and Francis Zane.
+\newblock Which problems have strongly exponential complexity?
+\newblock \emph{Journal of Computer and System Sciences}, 63\penalty0
+  (4):\penalty0 512--530, 2001.
+\newblock \doi{10.1006/jcss.2001.1774}.
+
+\bibitem[Majdoddin(2026)]{Maj26}
+Ruhollah Majdoddin.
+\newblock Lowered crossover points of {Anthropic}'s subexponential {3-SAT}
+  algorithm, 2026.
+\newblock URL \url{https://arxiv.org/abs/2610.41622v1}.
+\newblock Public preprint, arXiv:2610.41622v1, 30 October 2026.
+
+\bibitem[{MIT Hardness Group} et~al.(2026){MIT Hardness Group}, Brunner,
+  Demaine, Frei, Gomez, Hecher, Li, and Lynch]{SH26}
+{MIT Hardness Group}, Josh Brunner, Erik~D. Demaine, Fabian Frei, Timothy
+  Gomez, Markus Hecher, Jeffery Li, and Jayson Lynch.
+\newblock {ETH} is dead, long live {SH}, 2026.
+\newblock URL \url{https://arxiv.org/abs/2611.02650v1}.
+\newblock Public preprint, arXiv:2611.02650v1, 2 November 2026.
+
+\bibitem[Moura and Ullrich(2021)]{Lean4}
+Leonardo~de Moura and Sebastian Ullrich.
+\newblock The {Lean} 4 theorem prover and programming language.
+\newblock In \emph{Automated Deduction -- {CADE} 28}, volume 12699 of
+  \emph{Lecture notes in computer science}, pages 625--635. Springer, 2021.
+\newblock \doi{10.1007/978-3-030-79876-5_37}.
+
+\bibitem[{OpenAI}(2026)]{O26}
+{OpenAI}.
+\newblock The {Exponential} {Time} {Hypothesis} is false, 2026.
+\newblock URL
+  \url{https://github.com/openai/math/blob/42907c9e999cc00d6abe7a50bfc1023250edd1b9/preprints/The-Exponential-Time-Hypothesis-is-False-October-25-2026/build/main_full_version.tex}.
+\newblock Preprint dated 17 October, revised 25 October 2026. Source snapshot
+  42907c9e999cc00d6abe7a50bfc1023250edd1b9.
+
+\bibitem[Stearns and Hunt(1990)]{SH90}
+R.~E. Stearns and H.~B. Hunt, III.
+\newblock Power indices and easier hard problems.
+\newblock \emph{Mathematical Systems Theory}, 23:\penalty0 209--225, 1990.
+\newblock \doi{10.1007/BF02090776}.
+
+\bibitem[{The mathlib Community}(2020)]{Mathlib20}
+{The mathlib Community}.
+\newblock The {Lean} mathematical library.
+\newblock In \emph{Proceedings of the 9th ACM SIGPLAN international conference
+  on certified programs and proofs}, pages 367--381. ACM, 2020.
+\newblock \doi{10.1145/3372885.3373824}.
+
+\bibitem[Tulsyan(2026{\natexlab{a}})]{T26}
+Vaibhav Tulsyan.
+\newblock What the {ETH} refutations do not give: barriers for the counting
+  engines, with machine-checked lemmas, 2026{\natexlab{a}}.
+\newblock URL \url{https://hexagonmath.org/2611.00149v1}.
+\newblock Public preprint, hexagon:2611.00149v1, 6 November 2026.
+
+\bibitem[Tulsyan(2026{\natexlab{b}})]{T26note}
+Vaibhav Tulsyan.
+\newblock The parity barrier in {OpenAI}'s {Engine I}: exact constraints, a
+  lower bound for every {$M_0$}, and what is left open, 2026{\natexlab{b}}.
+\newblock URL
+  \url{https://github.com/xennygrimmato/eth-hamiltonicity/blob/946c49993b78aa163fcac3f8cb78ce351dd5dcc6/research/permanent/parity-barrier.md}.
+\newblock Supplementary proof note, repository snapshot
+  946c49993b78aa163fcac3f8cb78ce351dd5dcc6.
+
+\end{thebibliography}

@@ -1,0 +1,367 @@
+{
+  "audit_module": "ETHResponse.Audit",
+  "entrypoint": "ETHResponse",
+  "files": [
+    {
+      "bytes": 7985,
+      "path": "CORRESPONDENCE.md",
+      "sha256": "ea69e94728e3f1da29b314e06eddcf0e15893fa1ce07739dddbceab2b9bd7bb1",
+      "source_path": "public/CORRESPONDENCE.md",
+      "source_sha256": "ea69e94728e3f1da29b314e06eddcf0e15893fa1ce07739dddbceab2b9bd7bb1",
+      "transform": "identity"
+    },
+    {
+      "bytes": 1294,
+      "path": "ETHResponse.lean",
+      "sha256": "d7d3bb7b0e35c18d3fe82903cfc7694c51fe0060d7886447f90bc0b9c21447be",
+      "source_path": "ETHResponse.lean",
+      "source_sha256": "d7d3bb7b0e35c18d3fe82903cfc7694c51fe0060d7886447f90bc0b9c21447be",
+      "transform": "identity"
+    },
+    {
+      "bytes": 5951,
+      "path": "ETHResponse/Audit.lean",
+      "sha256": "b1e19c8cd466c937c4693955369e761043ed0c7e4a9fb8b61db1ccc94013355e",
+      "source_path": "ETHResponse/Audit.lean",
+      "source_sha256": "b1e19c8cd466c937c4693955369e761043ed0c7e4a9fb8b61db1ccc94013355e",
+      "transform": "identity"
+    },
+    {
+      "bytes": 11666,
+      "path": "ExactSolution/BinomialMode.lean",
+      "sha256": "036cd45b8efce7aaf39bed0b2c8d3791a36fe77ec267bb270a7f4256196cc47f",
+      "source_path": "ExactSolution/BinomialMode.lean",
+      "source_sha256": "036cd45b8efce7aaf39bed0b2c8d3791a36fe77ec267bb270a7f4256196cc47f",
+      "transform": "identity"
+    },
+    {
+      "bytes": 21775,
+      "path": "ExactSolution/Composition.lean",
+      "sha256": "ae21130aca8f769fe1979bd7ec6a20394ff69d48758a5f1940e838bb8a17e91a",
+      "source_path": "ExactSolution/Composition.lean",
+      "source_sha256": "ae21130aca8f769fe1979bd7ec6a20394ff69d48758a5f1940e838bb8a17e91a",
+      "transform": "identity"
+    },
+    {
+      "bytes": 3868,
+      "path": "ExactSolution/Covering.lean",
+      "sha256": "8fcfc09b79ade8fc13c8448f151cbee6c87c2ded7df15e270e6a0bb1907a8838",
+      "source_path": "ExactSolution/Covering.lean",
+      "source_sha256": "8fcfc09b79ade8fc13c8448f151cbee6c87c2ded7df15e270e6a0bb1907a8838",
+      "transform": "identity"
+    },
+    {
+      "bytes": 8354,
+      "path": "ExactSolution/DegreeFloor.lean",
+      "sha256": "3da114d062d52b136ac957b5260521282a7fa490780b24ed44be630a622e37b0",
+      "source_path": "ExactSolution/DegreeFloor.lean",
+      "source_sha256": "3da114d062d52b136ac957b5260521282a7fa490780b24ed44be630a622e37b0",
+      "transform": "identity"
+    },
+    {
+      "bytes": 14750,
+      "path": "ExactSolution/Discovery.lean",
+      "sha256": "484d95be33cf27fc7bc77af3bf133c4189520e1465801ac19cb23dc1c5f6a169",
+      "source_path": "ExactSolution/Discovery.lean",
+      "source_sha256": "484d95be33cf27fc7bc77af3bf133c4189520e1465801ac19cb23dc1c5f6a169",
+      "transform": "identity"
+    },
+    {
+      "bytes": 10796,
+      "path": "ExactSolution/Enumeration.lean",
+      "sha256": "fb898bf065ad5f1c6b94c8c6e52678e1335586f7d87682022e832cd6ecb1315d",
+      "source_path": "ExactSolution/Enumeration.lean",
+      "source_sha256": "fb898bf065ad5f1c6b94c8c6e52678e1335586f7d87682022e832cd6ecb1315d",
+      "transform": "identity"
+    },
+    {
+      "bytes": 7426,
+      "path": "ExactSolution/Hermite.lean",
+      "sha256": "0e1044c83be2861f907a7a987491fa6b5a4aba2fe05c50f6170a2278dabbbdba",
+      "source_path": "ExactSolution/Hermite.lean",
+      "source_sha256": "0e1044c83be2861f907a7a987491fa6b5a4aba2fe05c50f6170a2278dabbbdba",
+      "transform": "identity"
+    },
+    {
+      "bytes": 5994,
+      "path": "ExactSolution/MeasurementRank.lean",
+      "sha256": "89c8f9fcdec843528e81d895fa52bab63f3fcbf6f588d60a5665d1b9d44dde9c",
+      "source_path": "ExactSolution/MeasurementRank.lean",
+      "source_sha256": "89c8f9fcdec843528e81d895fa52bab63f3fcbf6f588d60a5665d1b9d44dde9c",
+      "transform": "identity"
+    },
+    {
+      "bytes": 4467,
+      "path": "ExactSolution/MeasurementRank/Basic.lean",
+      "sha256": "3f35a34bddb986efe5790f7ac6358565fca82e360852d59cb77d4c7243266ea9",
+      "source_path": "ExactSolution/MeasurementRank/Basic.lean",
+      "source_sha256": "3f35a34bddb986efe5790f7ac6358565fca82e360852d59cb77d4c7243266ea9",
+      "transform": "identity"
+    },
+    {
+      "bytes": 5547,
+      "path": "ExactSolution/NearExponential.lean",
+      "sha256": "f221cc9e95d498ba25b35ed1b258fc8c974af1edcde4b2f564b7380036eab1c0",
+      "source_path": "ExactSolution/NearExponential.lean",
+      "source_sha256": "f221cc9e95d498ba25b35ed1b258fc8c974af1edcde4b2f564b7380036eab1c0",
+      "transform": "identity"
+    },
+    {
+      "bytes": 5862,
+      "path": "ExactSolution/Observability.lean",
+      "sha256": "4981dd4ae7f5c79dc5006d33b5898d06e1716a430de82151ce5645fc9fa96eef",
+      "source_path": "ExactSolution/Observability.lean",
+      "source_sha256": "4981dd4ae7f5c79dc5006d33b5898d06e1716a430de82151ce5645fc9fa96eef",
+      "transform": "identity"
+    },
+    {
+      "bytes": 3112,
+      "path": "ExactSolution/Observation.lean",
+      "sha256": "36f56a92af4be312bbbee9e8f80eb850f86aa8a5565531cafe5af3be15d0eeeb",
+      "source_path": "ExactSolution/Observation.lean",
+      "source_sha256": "36f56a92af4be312bbbee9e8f80eb850f86aa8a5565531cafe5af3be15d0eeeb",
+      "transform": "identity"
+    },
+    {
+      "bytes": 4743,
+      "path": "ExactSolution/PolynomialAgreement.lean",
+      "sha256": "6d1d24b190782ccc9198081b817066c459277adbff7d343b3863a793d951d026",
+      "source_path": "ExactSolution/PolynomialAgreement.lean",
+      "source_sha256": "6d1d24b190782ccc9198081b817066c459277adbff7d343b3863a793d951d026",
+      "transform": "identity"
+    },
+    {
+      "bytes": 3841,
+      "path": "ExactSolution/ReadAll.lean",
+      "sha256": "8bd7185d576bc64e2715716f1db5a9c7afbd28982ac8b6ed10a54d6336b165e0",
+      "source_path": "ExactSolution/ReadAll.lean",
+      "source_sha256": "8bd7185d576bc64e2715716f1db5a9c7afbd28982ac8b6ed10a54d6336b165e0",
+      "transform": "identity"
+    },
+    {
+      "bytes": 20244,
+      "path": "ExactSolution/SelectedMeasurements.lean",
+      "sha256": "5b8f197e8c4d3ad6af89fa03debac6f3fa5520beca8999a1c9454ea5f2a83dd3",
+      "source_path": "ExactSolution/SelectedMeasurements.lean",
+      "source_sha256": "5b8f197e8c4d3ad6af89fa03debac6f3fa5520beca8999a1c9454ea5f2a83dd3",
+      "transform": "identity"
+    },
+    {
+      "bytes": 8967,
+      "path": "ExactSolution/SelectedMeasurements/Rows.lean",
+      "sha256": "7db40a2dc81afc7edd05e1596472990614c7884c33c1defa6372b7d98474571e",
+      "source_path": "ExactSolution/SelectedMeasurements/Rows.lean",
+      "source_sha256": "7db40a2dc81afc7edd05e1596472990614c7884c33c1defa6372b7d98474571e",
+      "transform": "identity"
+    },
+    {
+      "bytes": 5435,
+      "path": "ExactSolution/Simulation.lean",
+      "sha256": "bcde125453d2f5bb85d6522454bf3f7ff1e191e02d84d71bcedab5511748e0c7",
+      "source_path": "ExactSolution/Simulation.lean",
+      "source_sha256": "bcde125453d2f5bb85d6522454bf3f7ff1e191e02d84d71bcedab5511748e0c7",
+      "transform": "identity"
+    },
+    {
+      "bytes": 12928,
+      "path": "ExactSolution/SingletonCNF.lean",
+      "sha256": "c1e56135d2210ac729c8b80e39fc2ca0699257a1a1029aafab3fd7ac2d2931f2",
+      "source_path": "ExactSolution/SingletonCNF.lean",
+      "source_sha256": "c1e56135d2210ac729c8b80e39fc2ca0699257a1a1029aafab3fd7ac2d2931f2",
+      "transform": "identity"
+    },
+    {
+      "bytes": 1034,
+      "path": "ExactSolution/SwapSpectrum.lean",
+      "sha256": "7730f1cd7e9045d785575b21da79868852d8b9ca508dbe57fc4bb1cfe3f30c9b",
+      "source_path": "ExactSolution/SwapSpectrum.lean",
+      "source_sha256": "7730f1cd7e9045d785575b21da79868852d8b9ca508dbe57fc4bb1cfe3f30c9b",
+      "transform": "identity"
+    },
+    {
+      "bytes": 5791,
+      "path": "ExactSolution/SwapSpectrum/Multiplicity.lean",
+      "sha256": "85e40fd0570109cb5c7f6ceca326ccade2dde2142240a1adc6468189b16cb766",
+      "source_path": "ExactSolution/SwapSpectrum/Multiplicity.lean",
+      "source_sha256": "85e40fd0570109cb5c7f6ceca326ccade2dde2142240a1adc6468189b16cb766",
+      "transform": "identity"
+    },
+    {
+      "bytes": 6319,
+      "path": "ExactSolution/SwapSpectrum/Operators.lean",
+      "sha256": "f77d0a9853f6a774a0175bd83c1266aad6a720a87da60c1b9988df897bbaa316",
+      "source_path": "ExactSolution/SwapSpectrum/Operators.lean",
+      "source_sha256": "f77d0a9853f6a774a0175bd83c1266aad6a720a87da60c1b9988df897bbaa316",
+      "transform": "identity"
+    },
+    {
+      "bytes": 4269,
+      "path": "ExactSolution/SwapSpectrum/PairBasis.lean",
+      "sha256": "a25ddd05a8b56ab043579d407ddb905de371d355514ee6558a827b7682506a0e",
+      "source_path": "ExactSolution/SwapSpectrum/PairBasis.lean",
+      "source_sha256": "a25ddd05a8b56ab043579d407ddb905de371d355514ee6558a827b7682506a0e",
+      "transform": "identity"
+    },
+    {
+      "bytes": 2537,
+      "path": "ExactSolution/SwapSpectrum/TensorBasis.lean",
+      "sha256": "631e4afce5ce1bf173e6421db8be3eecdcb872b03727be626cb671965467d7bb",
+      "source_path": "ExactSolution/SwapSpectrum/TensorBasis.lean",
+      "source_sha256": "631e4afce5ce1bf173e6421db8be3eecdcb872b03727be626cb671965467d7bb",
+      "transform": "identity"
+    },
+    {
+      "bytes": 4684,
+      "path": "ExactSolution/SwapSpectrum/Values.lean",
+      "sha256": "ec55b53d2e89c2b8a43e08625a7b34cd2349289462021b057102ff79ee48eb24",
+      "source_path": "ExactSolution/SwapSpectrum/Values.lean",
+      "source_sha256": "ec55b53d2e89c2b8a43e08625a7b34cd2349289462021b057102ff79ee48eb24",
+      "transform": "identity"
+    },
+    {
+      "bytes": 5024,
+      "path": "ExactSolution/Transcript.lean",
+      "sha256": "97493cd924d60080c092ad58ee9408b5140dc9bae6d9dbaf60081c2425c3460f",
+      "source_path": "ExactSolution/Transcript.lean",
+      "source_sha256": "97493cd924d60080c092ad58ee9408b5140dc9bae6d9dbaf60081c2425c3460f",
+      "transform": "identity"
+    },
+    {
+      "bytes": 2627,
+      "path": "ExactSolution/WeightedObservation.lean",
+      "sha256": "d8f75d52a9af05805baf1f70b19a077a097be4b5103ec77425ca8d6f398f9aa5",
+      "source_path": "ExactSolution/WeightedObservation.lean",
+      "source_sha256": "d8f75d52a9af05805baf1f70b19a077a097be4b5103ec77425ca8d6f398f9aa5",
+      "transform": "identity"
+    },
+    {
+      "bytes": 5325,
+      "path": "README.md",
+      "sha256": "ce721cb567f76d13c9164dd6a546bfa9fae811514f08c6156a698cf622e96036",
+      "source_path": "public/README.md",
+      "source_sha256": "ce721cb567f76d13c9164dd6a546bfa9fae811514f08c6156a698cf622e96036",
+      "transform": "identity"
+    },
+    {
+      "bytes": 3514,
+      "path": "lake-manifest.json",
+      "sha256": "4ca53bf019f55de41c58242e6e3b2666efb25bb24e22485668096e058ba5ae2d",
+      "source_path": "lake-manifest.json",
+      "source_sha256": "4ca53bf019f55de41c58242e6e3b2666efb25bb24e22485668096e058ba5ae2d",
+      "transform": "identity"
+    },
+    {
+      "bytes": 1171,
+      "path": "lakefile.toml",
+      "sha256": "34c8ed131d5ac3751ee6da5065ca4f21a755de730fb42a92869a22732af5ed30",
+      "source_path": null,
+      "source_sha256": null,
+      "transform": "standalone_lakefile"
+    },
+    {
+      "bytes": 25,
+      "path": "lean-toolchain",
+      "sha256": "db7bb24b756d745bbde83fe92718b51bd3625dae3701ba0f598d0eedcd3f3028",
+      "source_path": "lean-toolchain",
+      "source_sha256": "db7bb24b756d745bbde83fe92718b51bd3625dae3701ba0f598d0eedcd3f3028",
+      "transform": "identity"
+    }
+  ],
+  "generator": "proofs/export.py",
+  "hash_algorithm": "sha256",
+  "lean_module_count": 28,
+  "lean_toolchain": "leanprover/lean4:v4.28.0",
+  "local_module_imports": {
+    "ETHResponse": [
+      "ExactSolution.Covering",
+      "ExactSolution.Hermite",
+      "ExactSolution.MeasurementRank",
+      "ExactSolution.NearExponential",
+      "ExactSolution.Observability",
+      "ExactSolution.Observation",
+      "ExactSolution.ReadAll",
+      "ExactSolution.SelectedMeasurements",
+      "ExactSolution.Simulation",
+      "ExactSolution.SingletonCNF",
+      "ExactSolution.Transcript"
+    ],
+    "ETHResponse.Audit": [
+      "ETHResponse"
+    ],
+    "ExactSolution.BinomialMode": [],
+    "ExactSolution.Composition": [
+      "ExactSolution.WeightedObservation"
+    ],
+    "ExactSolution.Covering": [
+      "ExactSolution.Observation"
+    ],
+    "ExactSolution.DegreeFloor": [
+      "ExactSolution.BinomialMode",
+      "ExactSolution.PolynomialAgreement"
+    ],
+    "ExactSolution.Discovery": [
+      "ExactSolution.Transcript"
+    ],
+    "ExactSolution.Enumeration": [],
+    "ExactSolution.Hermite": [],
+    "ExactSolution.MeasurementRank": [
+      "ExactSolution.Enumeration",
+      "ExactSolution.MeasurementRank.Basic",
+      "ExactSolution.SwapSpectrum"
+    ],
+    "ExactSolution.MeasurementRank.Basic": [],
+    "ExactSolution.NearExponential": [
+      "ExactSolution.MeasurementRank"
+    ],
+    "ExactSolution.Observability": [
+      "ExactSolution.Observation"
+    ],
+    "ExactSolution.Observation": [],
+    "ExactSolution.PolynomialAgreement": [],
+    "ExactSolution.ReadAll": [
+      "ExactSolution.Discovery"
+    ],
+    "ExactSolution.SelectedMeasurements": [
+      "ExactSolution.NearExponential",
+      "ExactSolution.SelectedMeasurements.Rows"
+    ],
+    "ExactSolution.SelectedMeasurements.Rows": [
+      "ExactSolution.SwapSpectrum"
+    ],
+    "ExactSolution.Simulation": [
+      "ExactSolution.Composition"
+    ],
+    "ExactSolution.SingletonCNF": [
+      "ExactSolution.Observation"
+    ],
+    "ExactSolution.SwapSpectrum": [
+      "ExactSolution.SwapSpectrum.Values"
+    ],
+    "ExactSolution.SwapSpectrum.Multiplicity": [
+      "ExactSolution.DegreeFloor",
+      "ExactSolution.SwapSpectrum.PairBasis"
+    ],
+    "ExactSolution.SwapSpectrum.Operators": [
+      "ExactSolution.MeasurementRank.Basic",
+      "ExactSolution.SwapSpectrum.TensorBasis"
+    ],
+    "ExactSolution.SwapSpectrum.PairBasis": [],
+    "ExactSolution.SwapSpectrum.TensorBasis": [
+      "ExactSolution.SwapSpectrum.PairBasis"
+    ],
+    "ExactSolution.SwapSpectrum.Values": [
+      "ExactSolution.SwapSpectrum.Multiplicity",
+      "ExactSolution.SwapSpectrum.Operators"
+    ],
+    "ExactSolution.Transcript": [
+      "ExactSolution.Observability"
+    ],
+    "ExactSolution.WeightedObservation": [
+      "ExactSolution.Observation"
+    ]
+  },
+  "mathlib_revision": "8f9d9cff6bd728b17a24e163c9402775d9e6a365",
+  "profile": "eth_response",
+  "schema_version": 1,
+  "source_file_count": 33
+}

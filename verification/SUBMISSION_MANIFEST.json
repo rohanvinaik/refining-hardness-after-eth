@@ -1,0 +1,511 @@
+{
+  "files": [
+    {
+      "bytes": 5095,
+      "path": "README.md",
+      "sha256": "b0b98c2e8dd3b4c12d26513cd5c7d2114003bd7decf93f179f956dd0aae310a4"
+    },
+    {
+      "bytes": 10959,
+      "path": "exact_counting_point_observation_note.md",
+      "sha256": "c9cee01509dcf442cf31f97455a07db97a97c39e40f5860963b9aeee13deb6d5"
+    },
+    {
+      "bytes": 4172,
+      "path": "latex_pipeline/README.md",
+      "sha256": "d1a6e1dcba00f0af09eeed528d8e648a4b681311ea4d46f3354e9a7636efd4a9"
+    },
+    {
+      "bytes": 14204,
+      "path": "latex_pipeline/build.py",
+      "sha256": "901390c617fb27afb74137cebf08fac34a9cfbfc5e3c88fcdb5cd24161101293"
+    },
+    {
+      "bytes": 115,
+      "path": "latex_pipeline/build.sh",
+      "sha256": "5c73f066a930c9b9fedda8df37c5f7985bc24e7fc20fec24b77576dc6689cb9e"
+    },
+    {
+      "bytes": 23430,
+      "path": "latex_pipeline/package_submission.py",
+      "sha256": "4c07ef9352185cce2818781ef374aa78caacd19f3e3a82d588e88d0f826b0c6a"
+    },
+    {
+      "bytes": 2106,
+      "path": "latex_pipeline/template.tex",
+      "sha256": "471e7ca9b6875d8bdd99df9ea1d5266b82a7e7f62cae0c197b1bf2b03b2ad0c0"
+    },
+    {
+      "bytes": 19153,
+      "path": "latex_pipeline/test_builder.py",
+      "sha256": "64a085b9d3491fef263b7f00bf55d472c44555ca6fb250861406a93f9fbe7cb3"
+    },
+    {
+      "bytes": 11897,
+      "path": "latex_pipeline/theorem-filter.lua",
+      "sha256": "d24550a6dc1fb99138166d910a46f9619d02596767c9bec2c516e0646adc8b7f"
+    },
+    {
+      "bytes": 496,
+      "path": "prepare_submission.sh",
+      "sha256": "56e015ac7fe4f02b2ff6d8d391ae1e6ad08b50ec719179972747761a66f1634b"
+    },
+    {
+      "bytes": 7985,
+      "path": "proofs/CORRESPONDENCE.md",
+      "sha256": "ea69e94728e3f1da29b314e06eddcf0e15893fa1ce07739dddbceab2b9bd7bb1"
+    },
+    {
+      "bytes": 1294,
+      "path": "proofs/ETHResponse.lean",
+      "sha256": "d7d3bb7b0e35c18d3fe82903cfc7694c51fe0060d7886447f90bc0b9c21447be"
+    },
+    {
+      "bytes": 5951,
+      "path": "proofs/ETHResponse/Audit.lean",
+      "sha256": "b1e19c8cd466c937c4693955369e761043ed0c7e4a9fb8b61db1ccc94013355e"
+    },
+    {
+      "bytes": 11666,
+      "path": "proofs/ExactSolution/BinomialMode.lean",
+      "sha256": "036cd45b8efce7aaf39bed0b2c8d3791a36fe77ec267bb270a7f4256196cc47f"
+    },
+    {
+      "bytes": 21775,
+      "path": "proofs/ExactSolution/Composition.lean",
+      "sha256": "ae21130aca8f769fe1979bd7ec6a20394ff69d48758a5f1940e838bb8a17e91a"
+    },
+    {
+      "bytes": 3868,
+      "path": "proofs/ExactSolution/Covering.lean",
+      "sha256": "8fcfc09b79ade8fc13c8448f151cbee6c87c2ded7df15e270e6a0bb1907a8838"
+    },
+    {
+      "bytes": 8354,
+      "path": "proofs/ExactSolution/DegreeFloor.lean",
+      "sha256": "3da114d062d52b136ac957b5260521282a7fa490780b24ed44be630a622e37b0"
+    },
+    {
+      "bytes": 14750,
+      "path": "proofs/ExactSolution/Discovery.lean",
+      "sha256": "484d95be33cf27fc7bc77af3bf133c4189520e1465801ac19cb23dc1c5f6a169"
+    },
+    {
+      "bytes": 10796,
+      "path": "proofs/ExactSolution/Enumeration.lean",
+      "sha256": "fb898bf065ad5f1c6b94c8c6e52678e1335586f7d87682022e832cd6ecb1315d"
+    },
+    {
+      "bytes": 7426,
+      "path": "proofs/ExactSolution/Hermite.lean",
+      "sha256": "0e1044c83be2861f907a7a987491fa6b5a4aba2fe05c50f6170a2278dabbbdba"
+    },
+    {
+      "bytes": 5994,
+      "path": "proofs/ExactSolution/MeasurementRank.lean",
+      "sha256": "89c8f9fcdec843528e81d895fa52bab63f3fcbf6f588d60a5665d1b9d44dde9c"
+    },
+    {
+      "bytes": 4467,
+      "path": "proofs/ExactSolution/MeasurementRank/Basic.lean",
+      "sha256": "3f35a34bddb986efe5790f7ac6358565fca82e360852d59cb77d4c7243266ea9"
+    },
+    {
+      "bytes": 5547,
+      "path": "proofs/ExactSolution/NearExponential.lean",
+      "sha256": "f221cc9e95d498ba25b35ed1b258fc8c974af1edcde4b2f564b7380036eab1c0"
+    },
+    {
+      "bytes": 5862,
+      "path": "proofs/ExactSolution/Observability.lean",
+      "sha256": "4981dd4ae7f5c79dc5006d33b5898d06e1716a430de82151ce5645fc9fa96eef"
+    },
+    {
+      "bytes": 3112,
+      "path": "proofs/ExactSolution/Observation.lean",
+      "sha256": "36f56a92af4be312bbbee9e8f80eb850f86aa8a5565531cafe5af3be15d0eeeb"
+    },
+    {
+      "bytes": 4743,
+      "path": "proofs/ExactSolution/PolynomialAgreement.lean",
+      "sha256": "6d1d24b190782ccc9198081b817066c459277adbff7d343b3863a793d951d026"
+    },
+    {
+      "bytes": 3841,
+      "path": "proofs/ExactSolution/ReadAll.lean",
+      "sha256": "8bd7185d576bc64e2715716f1db5a9c7afbd28982ac8b6ed10a54d6336b165e0"
+    },
+    {
+      "bytes": 20244,
+      "path": "proofs/ExactSolution/SelectedMeasurements.lean",
+      "sha256": "5b8f197e8c4d3ad6af89fa03debac6f3fa5520beca8999a1c9454ea5f2a83dd3"
+    },
+    {
+      "bytes": 8967,
+      "path": "proofs/ExactSolution/SelectedMeasurements/Rows.lean",
+      "sha256": "7db40a2dc81afc7edd05e1596472990614c7884c33c1defa6372b7d98474571e"
+    },
+    {
+      "bytes": 5435,
+      "path": "proofs/ExactSolution/Simulation.lean",
+      "sha256": "bcde125453d2f5bb85d6522454bf3f7ff1e191e02d84d71bcedab5511748e0c7"
+    },
+    {
+      "bytes": 12928,
+      "path": "proofs/ExactSolution/SingletonCNF.lean",
+      "sha256": "c1e56135d2210ac729c8b80e39fc2ca0699257a1a1029aafab3fd7ac2d2931f2"
+    },
+    {
+      "bytes": 1034,
+      "path": "proofs/ExactSolution/SwapSpectrum.lean",
+      "sha256": "7730f1cd7e9045d785575b21da79868852d8b9ca508dbe57fc4bb1cfe3f30c9b"
+    },
+    {
+      "bytes": 5791,
+      "path": "proofs/ExactSolution/SwapSpectrum/Multiplicity.lean",
+      "sha256": "85e40fd0570109cb5c7f6ceca326ccade2dde2142240a1adc6468189b16cb766"
+    },
+    {
+      "bytes": 6319,
+      "path": "proofs/ExactSolution/SwapSpectrum/Operators.lean",
+      "sha256": "f77d0a9853f6a774a0175bd83c1266aad6a720a87da60c1b9988df897bbaa316"
+    },
+    {
+      "bytes": 4269,
+      "path": "proofs/ExactSolution/SwapSpectrum/PairBasis.lean",
+      "sha256": "a25ddd05a8b56ab043579d407ddb905de371d355514ee6558a827b7682506a0e"
+    },
+    {
+      "bytes": 2537,
+      "path": "proofs/ExactSolution/SwapSpectrum/TensorBasis.lean",
+      "sha256": "631e4afce5ce1bf173e6421db8be3eecdcb872b03727be626cb671965467d7bb"
+    },
+    {
+      "bytes": 4684,
+      "path": "proofs/ExactSolution/SwapSpectrum/Values.lean",
+      "sha256": "ec55b53d2e89c2b8a43e08625a7b34cd2349289462021b057102ff79ee48eb24"
+    },
+    {
+      "bytes": 5024,
+      "path": "proofs/ExactSolution/Transcript.lean",
+      "sha256": "97493cd924d60080c092ad58ee9408b5140dc9bae6d9dbaf60081c2425c3460f"
+    },
+    {
+      "bytes": 2627,
+      "path": "proofs/ExactSolution/WeightedObservation.lean",
+      "sha256": "d8f75d52a9af05805baf1f70b19a077a097be4b5103ec77425ca8d6f398f9aa5"
+    },
+    {
+      "bytes": 5325,
+      "path": "proofs/README.md",
+      "sha256": "ce721cb567f76d13c9164dd6a546bfa9fae811514f08c6156a698cf622e96036"
+    },
+    {
+      "bytes": 14308,
+      "path": "proofs/SOURCE_MANIFEST.json",
+      "sha256": "75fd48f3af4ee1627aa1942f42d411e7e4d255705a2ccea35b66d956f949e8a0"
+    },
+    {
+      "bytes": 28112,
+      "path": "proofs/export.py",
+      "sha256": "21d1f34ac3ba7ea33e95081c6c82678c105a75c1e210751f1bb85b7722184d23"
+    },
+    {
+      "bytes": 3514,
+      "path": "proofs/lake-manifest.json",
+      "sha256": "4ca53bf019f55de41c58242e6e3b2666efb25bb24e22485668096e058ba5ae2d"
+    },
+    {
+      "bytes": 1171,
+      "path": "proofs/lakefile.toml",
+      "sha256": "34c8ed131d5ac3751ee6da5065ca4f21a755de730fb42a92869a22732af5ed30"
+    },
+    {
+      "bytes": 25,
+      "path": "proofs/lean-toolchain",
+      "sha256": "db7bb24b756d745bbde83fe92718b51bd3625dae3701ba0f598d0eedcd3f3028"
+    },
+    {
+      "bytes": 7985,
+      "path": "proofs/public/CORRESPONDENCE.md",
+      "sha256": "ea69e94728e3f1da29b314e06eddcf0e15893fa1ce07739dddbceab2b9bd7bb1"
+    },
+    {
+      "bytes": 5325,
+      "path": "proofs/public/README.md",
+      "sha256": "ce721cb567f76d13c9164dd6a546bfa9fae811514f08c6156a698cf622e96036"
+    },
+    {
+      "bytes": 288,
+      "path": "rebuild.sh",
+      "sha256": "d945821dbfc89d8d4093d681d8a1f8f947c758eb186900c3a02c187d4ca14777"
+    },
+    {
+      "bytes": 5973,
+      "path": "references/eth_response.bib",
+      "sha256": "6bd1f95a0c943e36f27666a2663740e82f0febab80d14884dde5ec5166ca208f"
+    },
+    {
+      "bytes": 46801,
+      "path": "structural_cost_of_exact_solution_draft.md",
+      "sha256": "502e4b5622801c08af3189fef581843e85f7d51218daaa30e45110095e2c0811"
+    },
+    {
+      "bytes": 21155,
+      "path": "submission/SUBMISSION_VERIFICATION.json",
+      "sha256": "6eeb5e9d6a714e0399ffeca2cc1fe35194e604565cff571faa2a63353e9ad9fc"
+    },
+    {
+      "bytes": 891,
+      "path": "submission/exact_counting_point_observation_note/build_receipt.json",
+      "sha256": "359c8dc80d4777850939c4ebe1d73a23d2627b9afd0b583bbfa051bb33278a10"
+    },
+    {
+      "bytes": 2451,
+      "path": "submission/exact_counting_point_observation_note/exact_counting_point_observation_note.bbl",
+      "sha256": "c2610c9db6a7e8edbfde3675b68eb7b217867176d0cfe3eef84d47c16ddcef6c"
+    },
+    {
+      "bytes": 51763,
+      "path": "submission/exact_counting_point_observation_note/exact_counting_point_observation_note.pdf",
+      "sha256": "621816df6eccc7c74eff69afefb21640c058f1fe27290fe502834f4f654ef5c0"
+    },
+    {
+      "bytes": 12700,
+      "path": "submission/exact_counting_point_observation_note/exact_counting_point_observation_note.tex",
+      "sha256": "178cd337f9c209a54d9fcebcc14753b826825ea17bb23bcfcaea6876736ed243"
+    },
+    {
+      "bytes": 79314,
+      "path": "submission/exact_counting_point_observation_note/exact_counting_point_observation_note_arxiv_source.zip",
+      "sha256": "1406dfa36fe472a9adaf27ccca0c459de28cd1f2b60287fe67c10fe299847ece"
+    },
+    {
+      "bytes": 5973,
+      "path": "submission/exact_counting_point_observation_note/references.bib",
+      "sha256": "6bd1f95a0c943e36f27666a2663740e82f0febab80d14884dde5ec5166ca208f"
+    },
+    {
+      "bytes": 71285,
+      "path": "submission/lean_proofs.zip",
+      "sha256": "d3ece9f1809cc56d1551cb6e5b1fab4d8f138ef4a90d9a062704f1023378eebc"
+    },
+    {
+      "bytes": 4788,
+      "path": "submission/lean_proofs/AXIOM_REPORT.json",
+      "sha256": "d88e0ae9e4ddb05c19405ee07e267ed67951a0c3ec7868490c64ac7d5b5a0f48"
+    },
+    {
+      "bytes": 2457,
+      "path": "submission/lean_proofs/BUILD.log",
+      "sha256": "50678163c4c448014af76dbc4030610f1a35cd2170427450281b43cbdaf51de2"
+    },
+    {
+      "bytes": 2579,
+      "path": "submission/lean_proofs/BUILD_STATUS.json",
+      "sha256": "f38c8bcb04619c225613c8b8f8cdafd416aa45ee8553291f8caf5c00ff17b4aa"
+    },
+    {
+      "bytes": 7985,
+      "path": "submission/lean_proofs/CORRESPONDENCE.md",
+      "sha256": "ea69e94728e3f1da29b314e06eddcf0e15893fa1ce07739dddbceab2b9bd7bb1"
+    },
+    {
+      "bytes": 1294,
+      "path": "submission/lean_proofs/ETHResponse.lean",
+      "sha256": "d7d3bb7b0e35c18d3fe82903cfc7694c51fe0060d7886447f90bc0b9c21447be"
+    },
+    {
+      "bytes": 5951,
+      "path": "submission/lean_proofs/ETHResponse/Audit.lean",
+      "sha256": "b1e19c8cd466c937c4693955369e761043ed0c7e4a9fb8b61db1ccc94013355e"
+    },
+    {
+      "bytes": 11666,
+      "path": "submission/lean_proofs/ExactSolution/BinomialMode.lean",
+      "sha256": "036cd45b8efce7aaf39bed0b2c8d3791a36fe77ec267bb270a7f4256196cc47f"
+    },
+    {
+      "bytes": 21775,
+      "path": "submission/lean_proofs/ExactSolution/Composition.lean",
+      "sha256": "ae21130aca8f769fe1979bd7ec6a20394ff69d48758a5f1940e838bb8a17e91a"
+    },
+    {
+      "bytes": 3868,
+      "path": "submission/lean_proofs/ExactSolution/Covering.lean",
+      "sha256": "8fcfc09b79ade8fc13c8448f151cbee6c87c2ded7df15e270e6a0bb1907a8838"
+    },
+    {
+      "bytes": 8354,
+      "path": "submission/lean_proofs/ExactSolution/DegreeFloor.lean",
+      "sha256": "3da114d062d52b136ac957b5260521282a7fa490780b24ed44be630a622e37b0"
+    },
+    {
+      "bytes": 14750,
+      "path": "submission/lean_proofs/ExactSolution/Discovery.lean",
+      "sha256": "484d95be33cf27fc7bc77af3bf133c4189520e1465801ac19cb23dc1c5f6a169"
+    },
+    {
+      "bytes": 10796,
+      "path": "submission/lean_proofs/ExactSolution/Enumeration.lean",
+      "sha256": "fb898bf065ad5f1c6b94c8c6e52678e1335586f7d87682022e832cd6ecb1315d"
+    },
+    {
+      "bytes": 7426,
+      "path": "submission/lean_proofs/ExactSolution/Hermite.lean",
+      "sha256": "0e1044c83be2861f907a7a987491fa6b5a4aba2fe05c50f6170a2278dabbbdba"
+    },
+    {
+      "bytes": 5994,
+      "path": "submission/lean_proofs/ExactSolution/MeasurementRank.lean",
+      "sha256": "89c8f9fcdec843528e81d895fa52bab63f3fcbf6f588d60a5665d1b9d44dde9c"
+    },
+    {
+      "bytes": 4467,
+      "path": "submission/lean_proofs/ExactSolution/MeasurementRank/Basic.lean",
+      "sha256": "3f35a34bddb986efe5790f7ac6358565fca82e360852d59cb77d4c7243266ea9"
+    },
+    {
+      "bytes": 5547,
+      "path": "submission/lean_proofs/ExactSolution/NearExponential.lean",
+      "sha256": "f221cc9e95d498ba25b35ed1b258fc8c974af1edcde4b2f564b7380036eab1c0"
+    },
+    {
+      "bytes": 5862,
+      "path": "submission/lean_proofs/ExactSolution/Observability.lean",
+      "sha256": "4981dd4ae7f5c79dc5006d33b5898d06e1716a430de82151ce5645fc9fa96eef"
+    },
+    {
+      "bytes": 3112,
+      "path": "submission/lean_proofs/ExactSolution/Observation.lean",
+      "sha256": "36f56a92af4be312bbbee9e8f80eb850f86aa8a5565531cafe5af3be15d0eeeb"
+    },
+    {
+      "bytes": 4743,
+      "path": "submission/lean_proofs/ExactSolution/PolynomialAgreement.lean",
+      "sha256": "6d1d24b190782ccc9198081b817066c459277adbff7d343b3863a793d951d026"
+    },
+    {
+      "bytes": 3841,
+      "path": "submission/lean_proofs/ExactSolution/ReadAll.lean",
+      "sha256": "8bd7185d576bc64e2715716f1db5a9c7afbd28982ac8b6ed10a54d6336b165e0"
+    },
+    {
+      "bytes": 20244,
+      "path": "submission/lean_proofs/ExactSolution/SelectedMeasurements.lean",
+      "sha256": "5b8f197e8c4d3ad6af89fa03debac6f3fa5520beca8999a1c9454ea5f2a83dd3"
+    },
+    {
+      "bytes": 8967,
+      "path": "submission/lean_proofs/ExactSolution/SelectedMeasurements/Rows.lean",
+      "sha256": "7db40a2dc81afc7edd05e1596472990614c7884c33c1defa6372b7d98474571e"
+    },
+    {
+      "bytes": 5435,
+      "path": "submission/lean_proofs/ExactSolution/Simulation.lean",
+      "sha256": "bcde125453d2f5bb85d6522454bf3f7ff1e191e02d84d71bcedab5511748e0c7"
+    },
+    {
+      "bytes": 12928,
+      "path": "submission/lean_proofs/ExactSolution/SingletonCNF.lean",
+      "sha256": "c1e56135d2210ac729c8b80e39fc2ca0699257a1a1029aafab3fd7ac2d2931f2"
+    },
+    {
+      "bytes": 1034,
+      "path": "submission/lean_proofs/ExactSolution/SwapSpectrum.lean",
+      "sha256": "7730f1cd7e9045d785575b21da79868852d8b9ca508dbe57fc4bb1cfe3f30c9b"
+    },
+    {
+      "bytes": 5791,
+      "path": "submission/lean_proofs/ExactSolution/SwapSpectrum/Multiplicity.lean",
+      "sha256": "85e40fd0570109cb5c7f6ceca326ccade2dde2142240a1adc6468189b16cb766"
+    },
+    {
+      "bytes": 6319,
+      "path": "submission/lean_proofs/ExactSolution/SwapSpectrum/Operators.lean",
+      "sha256": "f77d0a9853f6a774a0175bd83c1266aad6a720a87da60c1b9988df897bbaa316"
+    },
+    {
+      "bytes": 4269,
+      "path": "submission/lean_proofs/ExactSolution/SwapSpectrum/PairBasis.lean",
+      "sha256": "a25ddd05a8b56ab043579d407ddb905de371d355514ee6558a827b7682506a0e"
+    },
+    {
+      "bytes": 2537,
+      "path": "submission/lean_proofs/ExactSolution/SwapSpectrum/TensorBasis.lean",
+      "sha256": "631e4afce5ce1bf173e6421db8be3eecdcb872b03727be626cb671965467d7bb"
+    },
+    {
+      "bytes": 4684,
+      "path": "submission/lean_proofs/ExactSolution/SwapSpectrum/Values.lean",
+      "sha256": "ec55b53d2e89c2b8a43e08625a7b34cd2349289462021b057102ff79ee48eb24"
+    },
+    {
+      "bytes": 5024,
+      "path": "submission/lean_proofs/ExactSolution/Transcript.lean",
+      "sha256": "97493cd924d60080c092ad58ee9408b5140dc9bae6d9dbaf60081c2425c3460f"
+    },
+    {
+      "bytes": 2627,
+      "path": "submission/lean_proofs/ExactSolution/WeightedObservation.lean",
+      "sha256": "d8f75d52a9af05805baf1f70b19a077a097be4b5103ec77425ca8d6f398f9aa5"
+    },
+    {
+      "bytes": 5325,
+      "path": "submission/lean_proofs/README.md",
+      "sha256": "ce721cb567f76d13c9164dd6a546bfa9fae811514f08c6156a698cf622e96036"
+    },
+    {
+      "bytes": 14308,
+      "path": "submission/lean_proofs/SOURCE_MANIFEST.json",
+      "sha256": "75fd48f3af4ee1627aa1942f42d411e7e4d255705a2ccea35b66d956f949e8a0"
+    },
+    {
+      "bytes": 3514,
+      "path": "submission/lean_proofs/lake-manifest.json",
+      "sha256": "4ca53bf019f55de41c58242e6e3b2666efb25bb24e22485668096e058ba5ae2d"
+    },
+    {
+      "bytes": 1171,
+      "path": "submission/lean_proofs/lakefile.toml",
+      "sha256": "34c8ed131d5ac3751ee6da5065ca4f21a755de730fb42a92869a22732af5ed30"
+    },
+    {
+      "bytes": 25,
+      "path": "submission/lean_proofs/lean-toolchain",
+      "sha256": "db7bb24b756d745bbde83fe92718b51bd3625dae3701ba0f598d0eedcd3f3028"
+    },
+    {
+      "bytes": 909,
+      "path": "submission/structural_cost_of_exact_solution_draft/build_receipt.json",
+      "sha256": "db51eea48399a41eb87a7a7b5a763645786915cb0656c472ac13e0b55bacefac"
+    },
+    {
+      "bytes": 5973,
+      "path": "submission/structural_cost_of_exact_solution_draft/references.bib",
+      "sha256": "6bd1f95a0c943e36f27666a2663740e82f0febab80d14884dde5ec5166ca208f"
+    },
+    {
+      "bytes": 6158,
+      "path": "submission/structural_cost_of_exact_solution_draft/structural_cost_of_exact_solution_draft.bbl",
+      "sha256": "212a204f714890a0eb760a3b23a11168e376583176c1b3d31f9904bf5867d7b6"
+    },
+    {
+      "bytes": 145658,
+      "path": "submission/structural_cost_of_exact_solution_draft/structural_cost_of_exact_solution_draft.pdf",
+      "sha256": "805885f19031bbe1eb9eba8745420b65eabecb807421972fb42a8fb383fb195c"
+    },
+    {
+      "bytes": 52708,
+      "path": "submission/structural_cost_of_exact_solution_draft/structural_cost_of_exact_solution_draft.tex",
+      "sha256": "fcafabfda3149fda26116318a99dfea409a2d5797f2f48987726179b67a21357"
+    },
+    {
+      "bytes": 94717,
+      "path": "submission/structural_cost_of_exact_solution_draft/structural_cost_of_exact_solution_draft_arxiv_source.zip",
+      "sha256": "d8dd93a34bcbb12e37c2271e9a436a6069e578f98cad64dabae52bbd03701ca8"
+    }
+  ],
+  "hash_algorithm": "sha256",
+  "schema_version": 1
+}

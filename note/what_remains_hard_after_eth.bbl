@@ -1,0 +1,58 @@
+\begin{thebibliography}{7}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[{Claude}(2026)]{Ant26}
+{Claude}.
+\newblock A {$2^{o(n)}$} time algorithm for {3-SAT}, 2026.
+\newblock URL \url{https://hexagonmath.org/2610.00577v1}.
+\newblock Anthropic. Preprint dated 26 October 2026; hexagon:2610.00577v1,
+  deposited 27 October 2026.
+
+\bibitem[Dias and Lima(2026)]{DL26}
+Fabio Dias and Yvens Lima.
+\newblock Limits and constants of {OpenAI}'s claimed {ETH} refutation, 2026.
+\newblock URL \url{https://arxiv.org/abs/2611.00517v1}.
+\newblock Public preprint, arXiv:2611.00517v1, 31 October 2026.
+
+\bibitem[Majdoddin(2026)]{Maj26}
+Ruhollah Majdoddin.
+\newblock Lowered crossover points of {Anthropic}'s subexponential {3-SAT}
+  algorithm, 2026.
+\newblock URL \url{https://arxiv.org/abs/2610.41622v1}.
+\newblock Public preprint, arXiv:2610.41622v1, 30 October 2026.
+
+\bibitem[{MIT Hardness Group} et~al.(2026){MIT Hardness Group}, Brunner,
+  Demaine, Frei, Gomez, Hecher, Li, and Lynch]{SH26}
+{MIT Hardness Group}, Josh Brunner, Erik~D. Demaine, Fabian Frei, Timothy
+  Gomez, Markus Hecher, Jeffery Li, and Jayson Lynch.
+\newblock {ETH} is dead, long live {SH}, 2026.
+\newblock URL \url{https://arxiv.org/abs/2611.02650v1}.
+\newblock Public preprint, arXiv:2611.02650v1, 2 November 2026.
+
+\bibitem[{OpenAI}(2026)]{O26}
+{OpenAI}.
+\newblock The {Exponential} {Time} {Hypothesis} is false, 2026.
+\newblock URL
+  \url{https://github.com/openai/math/blob/42907c9e999cc00d6abe7a50bfc1023250edd1b9/preprints/The-Exponential-Time-Hypothesis-is-False-October-25-2026/build/main_full_version.tex}.
+\newblock Preprint dated 17 October, revised 25 October 2026. Source snapshot
+  42907c9e999cc00d6abe7a50bfc1023250edd1b9.
+
+\bibitem[Tulsyan(2026)]{T26}
+Vaibhav Tulsyan.
+\newblock What the {ETH} refutations do not give: barriers for the counting
+  engines, with machine-checked lemmas, 2026.
+\newblock URL \url{https://hexagonmath.org/2611.00149v1}.
+\newblock Public preprint, hexagon:2611.00149v1, 6 November 2026.
+
+\bibitem[Vinaik(2026)]{Main26}
+Rohan Vinaik.
+\newblock Refining hardness after {ETH}: Task-relevant distinctions and the
+  cost of exact counting.
+\newblock Companion article and Lean development in this source package, 7
+  November 2026, 2026.
+
+\end{thebibliography}

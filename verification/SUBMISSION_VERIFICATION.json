@@ -1,0 +1,492 @@
+{
+  "documents": [
+    {
+      "all_rendered_pages_match": true,
+      "ancillary_files": 34,
+      "archive_sha256": "d8dd93a34bcbb12e37c2271e9a436a6069e578f98cad64dabae52bbd03701ca8",
+      "bibliography_sha256": "6bd1f95a0c943e36f27666a2663740e82f0febab80d14884dde5ec5166ca208f",
+      "clean_tex_bibtex_compile": "passed",
+      "compiler_output_sha256": "d0a7c208a805ec50a747428dfe13c295d4972c6d4557fadb6e3a59310ff2619e",
+      "generated_page_ppm_sha256": [
+        "583407600deb00af9cb7d134ed974339d572a2dd1c4305272145ba4cb60af5ee",
+        "5c145553ba02b80512a2f033fda19bc174a17b79816bac7e35925d8d81884d03",
+        "25a9326a83783773bc77bce6f7eb372ef9f10b495a5764ff8a6a4640b2209a5a",
+        "5b4b499849c3f2119f59faa686dbfe9b35508eb697ff6da5d16849856b521449",
+        "da434e646df326e549b05d2cdd54cb87bed9ac8c664be1be282b607748f6166c",
+        "7c9533e0f121452257bd1b00795f19b2b0079f44817d203dcf10a7b2601e3577",
+        "4f97f5c38f4930f94dad33376682f29491cc0ed94dbe63ef3f082d1940202735",
+        "867a097979df72b83435cb922f24c594fd664b638017cfc32adf84a50bbbc259",
+        "92524c87864fb7961a28a9c2f74f6892a640b6a2034bd44f88ca72927d50e325",
+        "5802e2541ac15c13c554af21e89b25faa09b563f1fada006463dddcae0711fbf",
+        "bdc7702a29558607d19f9d19a8c2bfd6ca9cf6e3410012acd56d04a359ba63f7",
+        "0a724d8f8bec11f080e73343b417c3b7c1b12a70d90c8920a7e8beae8d0b248f",
+        "db56a2e49f930af109f5f099223f7cde1406915165e9040e98b3aea8aa753032",
+        "29aaf908f61e7bd622c86606ee2b1b10dc38acc7cb04d2c3e12fedc6954220ed",
+        "cda77451769628541b28df4aa4f85fb4c10fc79c8802f71d658d08d87ff81a4d",
+        "5b710bef30a40d1d0c279ae8890a3c46d56328f2c6c65d52a04f91f607fefeb4",
+        "2cef2d0f322887641fd91bf23e7b4cc09e629a7480ed02b843031005e7db4aaa"
+      ],
+      "generated_pdf_sha256": "c30695d89a371516486bdfc607c0b24b569217ff886a11efed3807a2e11db382",
+      "page_count": 17,
+      "reference_page_ppm_sha256": [
+        "583407600deb00af9cb7d134ed974339d572a2dd1c4305272145ba4cb60af5ee",
+        "5c145553ba02b80512a2f033fda19bc174a17b79816bac7e35925d8d81884d03",
+        "25a9326a83783773bc77bce6f7eb372ef9f10b495a5764ff8a6a4640b2209a5a",
+        "5b4b499849c3f2119f59faa686dbfe9b35508eb697ff6da5d16849856b521449",
+        "da434e646df326e549b05d2cdd54cb87bed9ac8c664be1be282b607748f6166c",
+        "7c9533e0f121452257bd1b00795f19b2b0079f44817d203dcf10a7b2601e3577",
+        "4f97f5c38f4930f94dad33376682f29491cc0ed94dbe63ef3f082d1940202735",
+        "867a097979df72b83435cb922f24c594fd664b638017cfc32adf84a50bbbc259",
+        "92524c87864fb7961a28a9c2f74f6892a640b6a2034bd44f88ca72927d50e325",
+        "5802e2541ac15c13c554af21e89b25faa09b563f1fada006463dddcae0711fbf",
+        "bdc7702a29558607d19f9d19a8c2bfd6ca9cf6e3410012acd56d04a359ba63f7",
+        "0a724d8f8bec11f080e73343b417c3b7c1b12a70d90c8920a7e8beae8d0b248f",
+        "db56a2e49f930af109f5f099223f7cde1406915165e9040e98b3aea8aa753032",
+        "29aaf908f61e7bd622c86606ee2b1b10dc38acc7cb04d2c3e12fedc6954220ed",
+        "cda77451769628541b28df4aa4f85fb4c10fc79c8802f71d658d08d87ff81a4d",
+        "5b710bef30a40d1d0c279ae8890a3c46d56328f2c6c65d52a04f91f607fefeb4",
+        "2cef2d0f322887641fd91bf23e7b4cc09e629a7480ed02b843031005e7db4aaa"
+      ],
+      "reference_pdf_sha256": "805885f19031bbe1eb9eba8745420b65eabecb807421972fb42a8fb383fb195c",
+      "render_dpi": 110,
+      "render_review": "pending",
+      "source_members": [
+        {
+          "bytes": 380,
+          "path": "README.txt",
+          "sha256": "d427c6d045b1c79bdbf192df3d5619eaf4a040384697d6c9295cf173cecb9723"
+        },
+        {
+          "bytes": 7985,
+          "path": "anc/lean_proofs/CORRESPONDENCE.md",
+          "sha256": "ea69e94728e3f1da29b314e06eddcf0e15893fa1ce07739dddbceab2b9bd7bb1"
+        },
+        {
+          "bytes": 1294,
+          "path": "anc/lean_proofs/ETHResponse.lean",
+          "sha256": "d7d3bb7b0e35c18d3fe82903cfc7694c51fe0060d7886447f90bc0b9c21447be"
+        },
+        {
+          "bytes": 5951,
+          "path": "anc/lean_proofs/ETHResponse/Audit.lean",
+          "sha256": "b1e19c8cd466c937c4693955369e761043ed0c7e4a9fb8b61db1ccc94013355e"
+        },
+        {
+          "bytes": 11666,
+          "path": "anc/lean_proofs/ExactSolution/BinomialMode.lean",
+          "sha256": "036cd45b8efce7aaf39bed0b2c8d3791a36fe77ec267bb270a7f4256196cc47f"
+        },
+        {
+          "bytes": 21775,
+          "path": "anc/lean_proofs/ExactSolution/Composition.lean",
+          "sha256": "ae21130aca8f769fe1979bd7ec6a20394ff69d48758a5f1940e838bb8a17e91a"
+        },
+        {
+          "bytes": 3868,
+          "path": "anc/lean_proofs/ExactSolution/Covering.lean",
+          "sha256": "8fcfc09b79ade8fc13c8448f151cbee6c87c2ded7df15e270e6a0bb1907a8838"
+        },
+        {
+          "bytes": 8354,
+          "path": "anc/lean_proofs/ExactSolution/DegreeFloor.lean",
+          "sha256": "3da114d062d52b136ac957b5260521282a7fa490780b24ed44be630a622e37b0"
+        },
+        {
+          "bytes": 14750,
+          "path": "anc/lean_proofs/ExactSolution/Discovery.lean",
+          "sha256": "484d95be33cf27fc7bc77af3bf133c4189520e1465801ac19cb23dc1c5f6a169"
+        },
+        {
+          "bytes": 10796,
+          "path": "anc/lean_proofs/ExactSolution/Enumeration.lean",
+          "sha256": "fb898bf065ad5f1c6b94c8c6e52678e1335586f7d87682022e832cd6ecb1315d"
+        },
+        {
+          "bytes": 7426,
+          "path": "anc/lean_proofs/ExactSolution/Hermite.lean",
+          "sha256": "0e1044c83be2861f907a7a987491fa6b5a4aba2fe05c50f6170a2278dabbbdba"
+        },
+        {
+          "bytes": 5994,
+          "path": "anc/lean_proofs/ExactSolution/MeasurementRank.lean",
+          "sha256": "89c8f9fcdec843528e81d895fa52bab63f3fcbf6f588d60a5665d1b9d44dde9c"
+        },
+        {
+          "bytes": 4467,
+          "path": "anc/lean_proofs/ExactSolution/MeasurementRank/Basic.lean",
+          "sha256": "3f35a34bddb986efe5790f7ac6358565fca82e360852d59cb77d4c7243266ea9"
+        },
+        {
+          "bytes": 5547,
+          "path": "anc/lean_proofs/ExactSolution/NearExponential.lean",
+          "sha256": "f221cc9e95d498ba25b35ed1b258fc8c974af1edcde4b2f564b7380036eab1c0"
+        },
+        {
+          "bytes": 5862,
+          "path": "anc/lean_proofs/ExactSolution/Observability.lean",
+          "sha256": "4981dd4ae7f5c79dc5006d33b5898d06e1716a430de82151ce5645fc9fa96eef"
+        },
+        {
+          "bytes": 3112,
+          "path": "anc/lean_proofs/ExactSolution/Observation.lean",
+          "sha256": "36f56a92af4be312bbbee9e8f80eb850f86aa8a5565531cafe5af3be15d0eeeb"
+        },
+        {
+          "bytes": 4743,
+          "path": "anc/lean_proofs/ExactSolution/PolynomialAgreement.lean",
+          "sha256": "6d1d24b190782ccc9198081b817066c459277adbff7d343b3863a793d951d026"
+        },
+        {
+          "bytes": 3841,
+          "path": "anc/lean_proofs/ExactSolution/ReadAll.lean",
+          "sha256": "8bd7185d576bc64e2715716f1db5a9c7afbd28982ac8b6ed10a54d6336b165e0"
+        },
+        {
+          "bytes": 20244,
+          "path": "anc/lean_proofs/ExactSolution/SelectedMeasurements.lean",
+          "sha256": "5b8f197e8c4d3ad6af89fa03debac6f3fa5520beca8999a1c9454ea5f2a83dd3"
+        },
+        {
+          "bytes": 8967,
+          "path": "anc/lean_proofs/ExactSolution/SelectedMeasurements/Rows.lean",
+          "sha256": "7db40a2dc81afc7edd05e1596472990614c7884c33c1defa6372b7d98474571e"
+        },
+        {
+          "bytes": 5435,
+          "path": "anc/lean_proofs/ExactSolution/Simulation.lean",
+          "sha256": "bcde125453d2f5bb85d6522454bf3f7ff1e191e02d84d71bcedab5511748e0c7"
+        },
+        {
+          "bytes": 12928,
+          "path": "anc/lean_proofs/ExactSolution/SingletonCNF.lean",
+          "sha256": "c1e56135d2210ac729c8b80e39fc2ca0699257a1a1029aafab3fd7ac2d2931f2"
+        },
+        {
+          "bytes": 1034,
+          "path": "anc/lean_proofs/ExactSolution/SwapSpectrum.lean",
+          "sha256": "7730f1cd7e9045d785575b21da79868852d8b9ca508dbe57fc4bb1cfe3f30c9b"
+        },
+        {
+          "bytes": 5791,
+          "path": "anc/lean_proofs/ExactSolution/SwapSpectrum/Multiplicity.lean",
+          "sha256": "85e40fd0570109cb5c7f6ceca326ccade2dde2142240a1adc6468189b16cb766"
+        },
+        {
+          "bytes": 6319,
+          "path": "anc/lean_proofs/ExactSolution/SwapSpectrum/Operators.lean",
+          "sha256": "f77d0a9853f6a774a0175bd83c1266aad6a720a87da60c1b9988df897bbaa316"
+        },
+        {
+          "bytes": 4269,
+          "path": "anc/lean_proofs/ExactSolution/SwapSpectrum/PairBasis.lean",
+          "sha256": "a25ddd05a8b56ab043579d407ddb905de371d355514ee6558a827b7682506a0e"
+        },
+        {
+          "bytes": 2537,
+          "path": "anc/lean_proofs/ExactSolution/SwapSpectrum/TensorBasis.lean",
+          "sha256": "631e4afce5ce1bf173e6421db8be3eecdcb872b03727be626cb671965467d7bb"
+        },
+        {
+          "bytes": 4684,
+          "path": "anc/lean_proofs/ExactSolution/SwapSpectrum/Values.lean",
+          "sha256": "ec55b53d2e89c2b8a43e08625a7b34cd2349289462021b057102ff79ee48eb24"
+        },
+        {
+          "bytes": 5024,
+          "path": "anc/lean_proofs/ExactSolution/Transcript.lean",
+          "sha256": "97493cd924d60080c092ad58ee9408b5140dc9bae6d9dbaf60081c2425c3460f"
+        },
+        {
+          "bytes": 2627,
+          "path": "anc/lean_proofs/ExactSolution/WeightedObservation.lean",
+          "sha256": "d8f75d52a9af05805baf1f70b19a077a097be4b5103ec77425ca8d6f398f9aa5"
+        },
+        {
+          "bytes": 5325,
+          "path": "anc/lean_proofs/README.md",
+          "sha256": "ce721cb567f76d13c9164dd6a546bfa9fae811514f08c6156a698cf622e96036"
+        },
+        {
+          "bytes": 14308,
+          "path": "anc/lean_proofs/SOURCE_MANIFEST.json",
+          "sha256": "75fd48f3af4ee1627aa1942f42d411e7e4d255705a2ccea35b66d956f949e8a0"
+        },
+        {
+          "bytes": 3514,
+          "path": "anc/lean_proofs/lake-manifest.json",
+          "sha256": "4ca53bf019f55de41c58242e6e3b2666efb25bb24e22485668096e058ba5ae2d"
+        },
+        {
+          "bytes": 1171,
+          "path": "anc/lean_proofs/lakefile.toml",
+          "sha256": "34c8ed131d5ac3751ee6da5065ca4f21a755de730fb42a92869a22732af5ed30"
+        },
+        {
+          "bytes": 25,
+          "path": "anc/lean_proofs/lean-toolchain",
+          "sha256": "db7bb24b756d745bbde83fe92718b51bd3625dae3701ba0f598d0eedcd3f3028"
+        },
+        {
+          "bytes": 5973,
+          "path": "references.bib",
+          "sha256": "6bd1f95a0c943e36f27666a2663740e82f0febab80d14884dde5ec5166ca208f"
+        },
+        {
+          "bytes": 6158,
+          "path": "structural_cost_of_exact_solution_draft.bbl",
+          "sha256": "212a204f714890a0eb760a3b23a11168e376583176c1b3d31f9904bf5867d7b6"
+        },
+        {
+          "bytes": 52708,
+          "path": "structural_cost_of_exact_solution_draft.tex",
+          "sha256": "fcafabfda3149fda26116318a99dfea409a2d5797f2f48987726179b67a21357"
+        }
+      ],
+      "source_sha256": "502e4b5622801c08af3189fef581843e85f7d51218daaa30e45110095e2c0811",
+      "stem": "structural_cost_of_exact_solution_draft",
+      "zip_crc": "passed"
+    },
+    {
+      "all_rendered_pages_match": true,
+      "ancillary_files": 34,
+      "archive_sha256": "1406dfa36fe472a9adaf27ccca0c459de28cd1f2b60287fe67c10fe299847ece",
+      "bibliography_sha256": "6bd1f95a0c943e36f27666a2663740e82f0febab80d14884dde5ec5166ca208f",
+      "clean_tex_bibtex_compile": "passed",
+      "compiler_output_sha256": "01142bddd1739e615fe9316509f08c421aa12d29f0945a0fe54d3caf768b5163",
+      "generated_page_ppm_sha256": [
+        "76036b116b7a18b2ece581b7a47d7aef51224a9693f8f236d169e0234465f191",
+        "fc39e7fb107ea9f94a9d5b0146f0d50333a2c3125f798a7a71534ccb47b9264a",
+        "ea7aeab3eb591970a1553b902a55142efb4c542678cea3b586090551cb9356c4",
+        "a27fa92f2476d303150b2131fcd377582c52b8d41963d53b1207b153b68a3736"
+      ],
+      "generated_pdf_sha256": "b1e75c16301356db47a6237453aa7db7ee1335fc57843821fd09c7bc2abecd6f",
+      "page_count": 4,
+      "reference_page_ppm_sha256": [
+        "76036b116b7a18b2ece581b7a47d7aef51224a9693f8f236d169e0234465f191",
+        "fc39e7fb107ea9f94a9d5b0146f0d50333a2c3125f798a7a71534ccb47b9264a",
+        "ea7aeab3eb591970a1553b902a55142efb4c542678cea3b586090551cb9356c4",
+        "a27fa92f2476d303150b2131fcd377582c52b8d41963d53b1207b153b68a3736"
+      ],
+      "reference_pdf_sha256": "621816df6eccc7c74eff69afefb21640c058f1fe27290fe502834f4f654ef5c0",
+      "render_dpi": 110,
+      "render_review": "pending",
+      "source_members": [
+        {
+          "bytes": 378,
+          "path": "README.txt",
+          "sha256": "df962f7bf6771379a1c0b75f50bd2b338741dd142333703c7759f900861e3443"
+        },
+        {
+          "bytes": 7985,
+          "path": "anc/lean_proofs/CORRESPONDENCE.md",
+          "sha256": "ea69e94728e3f1da29b314e06eddcf0e15893fa1ce07739dddbceab2b9bd7bb1"
+        },
+        {
+          "bytes": 1294,
+          "path": "anc/lean_proofs/ETHResponse.lean",
+          "sha256": "d7d3bb7b0e35c18d3fe82903cfc7694c51fe0060d7886447f90bc0b9c21447be"
+        },
+        {
+          "bytes": 5951,
+          "path": "anc/lean_proofs/ETHResponse/Audit.lean",
+          "sha256": "b1e19c8cd466c937c4693955369e761043ed0c7e4a9fb8b61db1ccc94013355e"
+        },
+        {
+          "bytes": 11666,
+          "path": "anc/lean_proofs/ExactSolution/BinomialMode.lean",
+          "sha256": "036cd45b8efce7aaf39bed0b2c8d3791a36fe77ec267bb270a7f4256196cc47f"
+        },
+        {
+          "bytes": 21775,
+          "path": "anc/lean_proofs/ExactSolution/Composition.lean",
+          "sha256": "ae21130aca8f769fe1979bd7ec6a20394ff69d48758a5f1940e838bb8a17e91a"
+        },
+        {
+          "bytes": 3868,
+          "path": "anc/lean_proofs/ExactSolution/Covering.lean",
+          "sha256": "8fcfc09b79ade8fc13c8448f151cbee6c87c2ded7df15e270e6a0bb1907a8838"
+        },
+        {
+          "bytes": 8354,
+          "path": "anc/lean_proofs/ExactSolution/DegreeFloor.lean",
+          "sha256": "3da114d062d52b136ac957b5260521282a7fa490780b24ed44be630a622e37b0"
+        },
+        {
+          "bytes": 14750,
+          "path": "anc/lean_proofs/ExactSolution/Discovery.lean",
+          "sha256": "484d95be33cf27fc7bc77af3bf133c4189520e1465801ac19cb23dc1c5f6a169"
+        },
+        {
+          "bytes": 10796,
+          "path": "anc/lean_proofs/ExactSolution/Enumeration.lean",
+          "sha256": "fb898bf065ad5f1c6b94c8c6e52678e1335586f7d87682022e832cd6ecb1315d"
+        },
+        {
+          "bytes": 7426,
+          "path": "anc/lean_proofs/ExactSolution/Hermite.lean",
+          "sha256": "0e1044c83be2861f907a7a987491fa6b5a4aba2fe05c50f6170a2278dabbbdba"
+        },
+        {
+          "bytes": 5994,
+          "path": "anc/lean_proofs/ExactSolution/MeasurementRank.lean",
+          "sha256": "89c8f9fcdec843528e81d895fa52bab63f3fcbf6f588d60a5665d1b9d44dde9c"
+        },
+        {
+          "bytes": 4467,
+          "path": "anc/lean_proofs/ExactSolution/MeasurementRank/Basic.lean",
+          "sha256": "3f35a34bddb986efe5790f7ac6358565fca82e360852d59cb77d4c7243266ea9"
+        },
+        {
+          "bytes": 5547,
+          "path": "anc/lean_proofs/ExactSolution/NearExponential.lean",
+          "sha256": "f221cc9e95d498ba25b35ed1b258fc8c974af1edcde4b2f564b7380036eab1c0"
+        },
+        {
+          "bytes": 5862,
+          "path": "anc/lean_proofs/ExactSolution/Observability.lean",
+          "sha256": "4981dd4ae7f5c79dc5006d33b5898d06e1716a430de82151ce5645fc9fa96eef"
+        },
+        {
+          "bytes": 3112,
+          "path": "anc/lean_proofs/ExactSolution/Observation.lean",
+          "sha256": "36f56a92af4be312bbbee9e8f80eb850f86aa8a5565531cafe5af3be15d0eeeb"
+        },
+        {
+          "bytes": 4743,
+          "path": "anc/lean_proofs/ExactSolution/PolynomialAgreement.lean",
+          "sha256": "6d1d24b190782ccc9198081b817066c459277adbff7d343b3863a793d951d026"
+        },
+        {
+          "bytes": 3841,
+          "path": "anc/lean_proofs/ExactSolution/ReadAll.lean",
+          "sha256": "8bd7185d576bc64e2715716f1db5a9c7afbd28982ac8b6ed10a54d6336b165e0"
+        },
+        {
+          "bytes": 20244,
+          "path": "anc/lean_proofs/ExactSolution/SelectedMeasurements.lean",
+          "sha256": "5b8f197e8c4d3ad6af89fa03debac6f3fa5520beca8999a1c9454ea5f2a83dd3"
+        },
+        {
+          "bytes": 8967,
+          "path": "anc/lean_proofs/ExactSolution/SelectedMeasurements/Rows.lean",
+          "sha256": "7db40a2dc81afc7edd05e1596472990614c7884c33c1defa6372b7d98474571e"
+        },
+        {
+          "bytes": 5435,
+          "path": "anc/lean_proofs/ExactSolution/Simulation.lean",
+          "sha256": "bcde125453d2f5bb85d6522454bf3f7ff1e191e02d84d71bcedab5511748e0c7"
+        },
+        {
+          "bytes": 12928,
+          "path": "anc/lean_proofs/ExactSolution/SingletonCNF.lean",
+          "sha256": "c1e56135d2210ac729c8b80e39fc2ca0699257a1a1029aafab3fd7ac2d2931f2"
+        },
+        {
+          "bytes": 1034,
+          "path": "anc/lean_proofs/ExactSolution/SwapSpectrum.lean",
+          "sha256": "7730f1cd7e9045d785575b21da79868852d8b9ca508dbe57fc4bb1cfe3f30c9b"
+        },
+        {
+          "bytes": 5791,
+          "path": "anc/lean_proofs/ExactSolution/SwapSpectrum/Multiplicity.lean",
+          "sha256": "85e40fd0570109cb5c7f6ceca326ccade2dde2142240a1adc6468189b16cb766"
+        },
+        {
+          "bytes": 6319,
+          "path": "anc/lean_proofs/ExactSolution/SwapSpectrum/Operators.lean",
+          "sha256": "f77d0a9853f6a774a0175bd83c1266aad6a720a87da60c1b9988df897bbaa316"
+        },
+        {
+          "bytes": 4269,
+          "path": "anc/lean_proofs/ExactSolution/SwapSpectrum/PairBasis.lean",
+          "sha256": "a25ddd05a8b56ab043579d407ddb905de371d355514ee6558a827b7682506a0e"
+        },
+        {
+          "bytes": 2537,
+          "path": "anc/lean_proofs/ExactSolution/SwapSpectrum/TensorBasis.lean",
+          "sha256": "631e4afce5ce1bf173e6421db8be3eecdcb872b03727be626cb671965467d7bb"
+        },
+        {
+          "bytes": 4684,
+          "path": "anc/lean_proofs/ExactSolution/SwapSpectrum/Values.lean",
+          "sha256": "ec55b53d2e89c2b8a43e08625a7b34cd2349289462021b057102ff79ee48eb24"
+        },
+        {
+          "bytes": 5024,
+          "path": "anc/lean_proofs/ExactSolution/Transcript.lean",
+          "sha256": "97493cd924d60080c092ad58ee9408b5140dc9bae6d9dbaf60081c2425c3460f"
+        },
+        {
+          "bytes": 2627,
+          "path": "anc/lean_proofs/ExactSolution/WeightedObservation.lean",
+          "sha256": "d8f75d52a9af05805baf1f70b19a077a097be4b5103ec77425ca8d6f398f9aa5"
+        },
+        {
+          "bytes": 5325,
+          "path": "anc/lean_proofs/README.md",
+          "sha256": "ce721cb567f76d13c9164dd6a546bfa9fae811514f08c6156a698cf622e96036"
+        },
+        {
+          "bytes": 14308,
+          "path": "anc/lean_proofs/SOURCE_MANIFEST.json",
+          "sha256": "75fd48f3af4ee1627aa1942f42d411e7e4d255705a2ccea35b66d956f949e8a0"
+        },
+        {
+          "bytes": 3514,
+          "path": "anc/lean_proofs/lake-manifest.json",
+          "sha256": "4ca53bf019f55de41c58242e6e3b2666efb25bb24e22485668096e058ba5ae2d"
+        },
+        {
+          "bytes": 1171,
+          "path": "anc/lean_proofs/lakefile.toml",
+          "sha256": "34c8ed131d5ac3751ee6da5065ca4f21a755de730fb42a92869a22732af5ed30"
+        },
+        {
+          "bytes": 25,
+          "path": "anc/lean_proofs/lean-toolchain",
+          "sha256": "db7bb24b756d745bbde83fe92718b51bd3625dae3701ba0f598d0eedcd3f3028"
+        },
+        {
+          "bytes": 2451,
+          "path": "exact_counting_point_observation_note.bbl",
+          "sha256": "c2610c9db6a7e8edbfde3675b68eb7b217867176d0cfe3eef84d47c16ddcef6c"
+        },
+        {
+          "bytes": 12700,
+          "path": "exact_counting_point_observation_note.tex",
+          "sha256": "178cd337f9c209a54d9fcebcc14753b826825ea17bb23bcfcaea6876736ed243"
+        },
+        {
+          "bytes": 5973,
+          "path": "references.bib",
+          "sha256": "6bd1f95a0c943e36f27666a2663740e82f0febab80d14884dde5ec5166ca208f"
+        }
+      ],
+      "source_sha256": "c9cee01509dcf442cf31f97455a07db97a97c39e40f5860963b9aeee13deb6d5",
+      "stem": "exact_counting_point_observation_note",
+      "zip_crc": "passed"
+    }
+  ],
+  "generator": "latex_pipeline/package_submission.py",
+  "lean_export": {
+    "archive_sha256": "d3ece9f1809cc56d1551cb6e5b1fab4d8f138ef4a90d9a062704f1023378eebc",
+    "audit_module": "ETHResponse.Audit",
+    "axiom_declaration_count": 709,
+    "entrypoint": "ETHResponse",
+    "lean_module_count": 28,
+    "profile": "eth_response",
+    "source_file_count": 33,
+    "source_manifest_sha256": "75fd48f3af4ee1627aa1942f42d411e7e4d255705a2ccea35b66d956f949e8a0",
+    "status": "passed"
+  },
+  "profile": "eth_response",
+  "schema_version": 1,
+  "status": "passed",
+  "visual_review": "not_assessed_by_packager",
+  "visual_review_receipt": {
+    "assessed_by_packager": false,
+    "provided_review_sha256": "2129e9de2d8f6410b748e5e2643be96a5e48049c83ab6bc283b59e81b46fef3b",
+    "reason": "VISUAL_REVIEW_STALE",
+    "status": "pending"
+  }
+}

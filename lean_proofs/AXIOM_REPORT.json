@@ -1,0 +1,217 @@
+{
+  "all_declarations_standard_axioms": true,
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "declaration_count": 709,
+  "named_endpoints": [
+    {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "name": "ExactSolution.transcript_certificate"
+    },
+    {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "name": "ExactSolution.explicit_input_ceiling"
+    },
+    {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "name": "ExactSolution.cover_capacity"
+    },
+    {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "name": "ExactSolution.SingletonCNF.singleton_count_complexity"
+    },
+    {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "name": "ExactSolution.SingletonCNF.singleton_identity_complexity"
+    },
+    {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "name": "ExactSolution.SingletonCNF.singleton_sat_complexity"
+    },
+    {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "name": "ExactSolution.hermite_unique"
+    },
+    {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "name": "ExactSolution.hermite_value_at_zero_determined_iff"
+    },
+    {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "name": "ExactSolution.SwapSpectrum.swap_rank_eq_failure_mass"
+    },
+    {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "name": "ExactSolution.MeasurementRank.swap_measurement_degree_floor"
+    },
+    {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "name": "ExactSolution.MeasurementRank.swap_measurement_enumeration_floor"
+    },
+    {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "name": "ExactSolution.swap_measurement_near_exponential"
+    },
+    {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "name": "ExactSolution.enumerationCount_le_three_pow"
+    },
+    {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "name": "ExactSolution.SelectedMeasurements.measurement_fixing_kernel"
+    },
+    {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "name": "ExactSolution.SelectedMeasurements.measurementMatrix_mulVecLin"
+    },
+    {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "name": "ExactSolution.SelectedMeasurements.measurementMatrix_values"
+    },
+    {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "name": "ExactSolution.SelectedMeasurements.integerMeasurementMatrix_cast"
+    },
+    {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "name": "ExactSolution.SelectedMeasurements.integerMeasurementMatrix_l1_le"
+    },
+    {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "name": "ExactSolution.SelectedMeasurements.rowCount_eq_dimension_mul_tail"
+    },
+    {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "name": "ExactSolution.SelectedMeasurements.selected_measurement_enumeration_floor"
+    },
+    {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "name": "ExactSolution.SelectedMeasurements.selected_measurement_near_exponential"
+    },
+    {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "name": "ExactSolution.SelectedMeasurements.eq_parityInterpolant"
+    },
+    {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "name": "ExactSolution.SelectedMeasurements.interval_measurement_enumeration_floor"
+    },
+    {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "name": "ExactSolution.SelectedMeasurements.interval_measurement_near_exponential"
+    },
+    {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "name": "ExactSolution.SelectedMeasurements.placed_row_count_bound"
+    }
+  ],
+  "schema_version": 1
+}

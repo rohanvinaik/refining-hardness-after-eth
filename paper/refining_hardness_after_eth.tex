@@ -1,0 +1,1025 @@
+% Portable, self-contained Pandoc publication template.
+\documentclass[11pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage[margin=0.9in]{geometry}
+\usepackage{microtype}
+\usepackage{booktabs,longtable,array,calc,multirow}
+\usepackage{etoolbox}
+\usepackage{graphicx}
+\usepackage{xurl}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage[hidelinks,unicode]{hyperref}
+\usepackage{bookmark}
+\urlstyle{same}
+\setcounter{secnumdepth}{3}
+\setlength{\emergencystretch}{3em}
+\setlength{\parskip}{0.2em}
+\allowdisplaybreaks[1]
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\providecommand{\passthrough}[1]{#1}
+\providecommand{\pandocbounded}[1]{#1}
+\AtBeginEnvironment{longtable}{\small\setlength{\tabcolsep}{4pt}}
+\newenvironment{manualstatement}{%
+  \par\addvspace{0.7\baselineskip}\begingroup\itshape\noindent\ignorespaces
+}{\par\endgroup\addvspace{0.4\baselineskip}}
+\newenvironment{manualdefinition}{%
+  \par\addvspace{0.7\baselineskip}\begingroup\normalfont\noindent\ignorespaces
+}{\par\endgroup\addvspace{0.4\baselineskip}}
+\newenvironment{manualproof}{%
+  \par\addvspace{0.4\baselineskip}\begingroup\normalfont\noindent\ignorespaces
+}{\par\endgroup\addvspace{0.5\baselineskip}}
+\title{Refining Hardness after ETH\\[0.5em]{\large Task-Relevant
+Distinctions and the Cost of Exact Counting}}
+\author{Rohan Vinaik}
+\date{\small 7 November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+The reported subexponential algorithms for satisfiability leave a strong
+successor question: can exact counting gain a fixed power in its
+exponent? We examine that question through the distinctions a task
+requires, the operations that resolve them jointly, and what those
+operations cost, with the public hypotheses \#SH and Weak \#ETH as the
+quantitative setting. After comparing the existing method-specific
+barriers, we give a fully formalized finite analysis of the
+coordinate-swap construction behind one interpolation algorithm. We
+construct the measurement rows it selects, prove their fixing-kernel
+property and their exact row count, and connect them to a uniform
+tradeoff among measurement, degree and enumeration. Under the stated row
+and dimension budgets, the complete clipped substitution enumeration has
+size at least \(2^{n\log_2\log_2 n/(4\sqrt{\log_2 n})}\) for
+\(n\ge2^{16}\), and eventually at least \(2^{n^{1-\varepsilon}}\) for
+every fixed \(\varepsilon>0\). This bounds the enumeration as completed;
+an algorithm that evaluates its aggregate by other operations calls for
+a separate analysis. The supporting mathematical implications and the
+constructed-measurement application are checked in Lean 4, and the
+unrestricted counting hypothesis stays open.
+\end{abstract}
+\section{Introduction}\label{introduction}
+
+The Exponential Time Hypothesis fixes the difficulty of 3-SAT at one
+scale: no deterministic algorithm runs in time \(2^{o(n)}\), up to
+polynomial factors in the input, where \(n\) counts the variables
+\citep{IPZ01}. Two recent preprints report algorithms that cross this
+boundary \citep{O26, Ant26}. Both algorithms count satisfying
+assignments exactly rather than merely deciding satisfiability. If their
+analyses hold, ETH is false. What they leave open is how much further
+the exponent can fall.
+
+That gap is both quantitative and structural. A running time of
+\(2^{n/\sqrt{\log n}}\) is subexponential, yet for every fixed
+\(\varepsilon>0\) its exponent still exceeds \(n^{1-\varepsilon}\) once
+\(n\) is large. A conjecture that rules out the latter scale therefore
+survives such an algorithm untouched. The Satisfiability Hypothesis of
+Stearns and Hunt \citep{SH90}, with its counting analogue, asks exactly
+this successor question. MIT Hardness Group \citep{SH26} have since
+shown it equivalent to Weak ETH and Weak \#ETH, and they have built the
+matching reduction theory.
+
+We ask what the distinction means for an account of hardness. A problem
+is hard neither because its presentation has many variables nor because
+its solution space has many candidates. One operation can resolve many
+apparent alternatives at once, while a compact representation of the
+answer can still be expensive to evaluate. So a refined hardness claim
+has to name four things together: the task, the alternatives that change
+its answer, the operations permitted on the input, and the cost of
+obtaining and using what those operations return.
+
+Our thesis is that the failure of ETH's original scale calls for this
+more discriminating account, and not for abandoning strong hardness
+hypotheses. Exact counting is a sharp setting for it: its answer is
+short, but computing that answer means controlling interactions among
+many assignments. Both reported algorithms show that those interactions
+can be organized more cheaply than ETH allowed. What remains is whether
+successive reorganizations can lower the exponent by a fixed power, or
+whether a near-exponential obstruction persists. We take \#SH, already
+public, as the quantitative form of that question, and we introduce no
+new name for it.
+
+Sections 3 and 4.1 mark two limits on what an information argument alone
+can prove. Section 3 gives an exponential point-query separation between
+counting and decision on small CNFs. Reading the formula as given costs
+only its encoding length in bit queries, so carrying that separation to
+running time would need a justified access simulation and its own
+account of computation. Section 4.1 gives the exact Hermite threshold
+for arbitrary degree-bounded polynomials. Its necessity proof uses
+indistinguishable polynomials that need not arise from formulas, and its
+threshold counts coefficients supplied rather than computed, so it says
+nothing yet about the cost of producing them.
+
+Those two checks bound the lower-bound argument from the outside;
+Theorem 5.1 rests on neither. Section 4 looks at the work the algorithms
+do on the input as written. Section 5 then finds an obstruction inside
+the operations of one such construction. Its coordinate swaps have an
+exact spectrum, so the fixing condition imposes a rank requirement on
+every rational measurement map. Agreement with parity turns that
+requirement into a degree floor, and the degree and dimension budgets
+then force a near-exponential complete substitution enumeration. We also
+build the measurement rows that the source algorithm selects, and we
+prove that they satisfy the fixing property.
+
+The spectral mechanism and the near-exponential template scale both have
+public antecedents, which Section 4.3 discusses. We add the finite,
+uniformly quantified implication itself, its mechanization on the
+coordinate space the algorithm uses, and the checked application to the
+source's own measurements. Together these give one concrete instance of
+the broader structural program: a result that says which changes of
+fixing polynomial or measurement rows yield no fixed-power improvement
+while the other contracts and the complete enumeration stay in place.
+Whether the unrestricted successor hypothesis holds is another question,
+and it stays open.
+
+\section{The quantitative question after
+ETH}\label{the-quantitative-question-after-eth}
+
+\subsection{Exponential scale and power of the
+exponent}\label{exponential-scale-and-power-of-the-exponent}
+
+Let \(L\) denote a structural encoding length of a CNF formula, counting
+its variables, clauses and literal occurrences. Conventional indexed
+binary encodings change this length by at most polylogarithmic factors,
+and such changes preserve the fixed-power separation in the hypotheses
+below. An arbitrary polynomial blowup needs its own accounting.
+Following the conventions of \citep{SH26}, we include unused variables
+in \(L\), and the variable-parameter hypothesis keeps polynomial
+running-time factors in the full input length in view.
+
+\textbf{Hypothesis 2.1 (Weak \#ETH and \#SH).} Weak \#ETH asserts that
+for every fixed \(\varepsilon>0\), no deterministic algorithm computes
+the exact number of satisfying assignments of a 3-CNF formula in time
+\[O\!\left(2^{n^{1-\varepsilon}}\right)L^{O(1)}.\] The hypothesis \#SH
+asserts that, for every fixed \(\varepsilon>0\), exact counting for
+unrestricted CNF formulas has no deterministic running time
+\(O(2^{L^{1-\varepsilon}})\).
+
+MIT Hardness Group prove that these two hypotheses are equivalent
+\citep[Theorem 2.4]{SH26}. Their counting-preserving ingredients are a
+linear-size Tseitin conversion with unique gate extensions and a
+disjoint, quantitative sparsification procedure, and their decision
+versions relate SH and Weak ETH in the same way. Both are public
+hypotheses with public reductions, so our unconditional theorems assume
+neither.
+
+This distinction from ETH is more than terminology. For any fixed
+\(a>0\) and fixed real \(b\), a positive exponent of order
+\[\frac{n(\log\log n)^b}{(\log n)^a}\] is \(o(n)\) and yet
+\(n^{1-o(1)}\). An algorithm at such a scale therefore refutes ETH while
+remaining compatible with Weak \#ETH. Calling it subexponential is
+correct; concluding that it lowers the exponent by a fixed power would
+be wrong.
+
+Both source results sit precisely there. For each fixed clause width,
+OpenAI report a counting time on general formulas of that width of
+\[L^{O(1)}\exp\!\left(O\!\left(\frac{n\log\log n}{\sqrt{\log n}}\right)\right)\]
+and a sparse-formula bound with exponent \(O(n/\sqrt{\log n})\)
+\citep{O26}. The Claude paper reports, for fixed clause width \(k\), the
+bound \[2^{\,O\!\left(\min\left\{
+\frac{km}{\sqrt{\log m}},
+\frac{k^2 n\log\log n}{\sqrt{\log n}}
+\right\}\right)},\] where \(m\) counts clauses and \(n\) counts the
+variables that occur \citep{Ant26}. Unused variables contribute a factor
+to the count that is computed directly. We take both as the upper bounds
+their authors state; the present formalization has not re-verified them.
+
+\subsection{What a structural explanation must
+add}\label{what-a-structural-explanation-must-add}
+
+\#SH states a rate of growth, and nothing more. It leaves unexplained
+which aspect of the input prevents a faster computation. An account of
+that obstruction needs more than the number of possible assignments,
+because summation, elimination, symmetry and algebraic identities all
+treat many assignments together.
+
+We therefore ask three questions. Which alternative instances require
+different task answers? Which permitted operations distinguish those
+alternatives? And how much computation goes into selecting,
+constructing, evaluating and combining those operations? Two of these
+fix an information requirement, while the third asks how an algorithm
+realizes it, and the analysis below needs all three.
+
+This separation also clarifies what a change of representation can do. A
+new representation may preserve every task-relevant distinction while
+making their joint resolution far cheaper. It may instead introduce an
+operation that is substantially more informative than the old ones. A
+certificate bound transfers only when a stated simulation preserves the
+relevant access costs, and a running-time claim needs computational
+control of the representation and its decoder as well. So there is no
+general inference from preserving information to preserving
+computational difficulty.
+
+Our structural reading of \#SH is correspondingly specific. Can every
+attempt at a fixed-power improvement be shown to leave an expensive
+unresolved interaction, once all jointly computable operations have been
+charged? Posed for unrestricted algorithms that is a research question.
+Section 5 answers one instance of it inside a defined construction, with
+the operators the algorithm uses and with stated budgets. Section 6 sets
+out what still stands between that instance and an unrestricted result.
+
+\section{Distinctions required by a
+task}\label{distinctions-required-by-a-task}
+
+\subsection{Certificates and completed
+computations}\label{certificates-and-completed-computations}
+
+Let \(\mathcal C\) be a class of admissible instances, let
+\(q:\mathcal C\to Y\) be the task, and let each \(e\in E\) specify an
+observation \(o_e:\mathcal C\to A\). The answer type may encode several
+scalars or a structured object. The class \(\mathcal C\) belongs to the
+model, since it says which alternatives a computation has to handle.
+
+\begin{manualdefinition}
+
+{{\upshape \textbf{Definition 3.1 (Task certificate).}}} A finite set
+\(T\subseteq E\) is a certificate for an instance \(x\in\mathcal C\) if
+\[\forall y\in\mathcal C,\quad
+\bigl(\forall e\in T,\ o_e(y)=o_e(x)\bigr)
+\Longrightarrow q(y)=q(x).\] Write \(\operatorname{cert}_q(x)\) for its
+minimum cardinality, with value \(\infty\) when no finite certificate
+exists. With nonnegative observation charges \(c_e\), use the infimum of
+\(\sum_{e\in T}c_e\) over finite certificates instead, again taking
+\(\infty\) for an empty family.
+
+\end{manualdefinition}
+
+This is the usual certificate notion for the declared observations,
+extended to a general task, and we claim no new complexity measure for
+algorithms in it: standard decision-tree and priced-information
+treatments already distinguish certificates, queries and the cost of
+finding useful information \citetext{\citealp[Section
+4.1]{BW02}; \citealp{CFGKRS02}}.
+
+A deterministic observation policy chooses its next observation, or its
+final answer, from the previous query--answer history alone. Any further
+access to the instance therefore has to appear among the permitted
+observations.
+
+\begin{manualstatement}
+
+{{\upshape \textbf{Proposition 3.2 (Transcript certificate).}}} If a
+deterministic policy halts on \(x\) with the correct task answer and is
+correct whenever it halts on an admissible instance, its completed
+observation transcript is a certificate for \(x\). In particular, the
+number of observation calls on a correct terminating run is at least
+\(\operatorname{cert}_q(x)\).
+
+\end{manualstatement}
+
+\begin{manualproof}
+
+\textbf{Proof.} An instance agreeing with the completed transcript
+produces the same first answer, hence the same next query. By induction
+it reproduces every query and answer and the same stopping decision, and
+correctness then gives the same task value. Removing repeated
+observations can only shrink the transcript. \(\square\)
+
+\end{manualproof}
+
+An elementary capacity bound shows the role of task-relevant
+alternatives directly. Suppose \(W\subseteq\mathcal C\) consists of
+\(M\) instances with \(q(y)\ne q(x)\), and every observation disagrees
+with \(x\) on at most \(r\) members of \(W\). Every finite certificate
+\(T\) must exclude all of \(W\); hence \[M\le r\,|T|.\] The proof is a
+union bound over the alternatives each observation excludes. For \(r>0\)
+it gives \(\operatorname{cert}_q(x)\ge M/r\), infinite certificate
+complexity included. A large \(M\) on its own proves nothing when one
+observation can exclude all \(M\) alternatives; the capacity of the
+permitted operation is essential.
+
+\subsection{Counting and decision can require different
+distinctions}\label{counting-and-decision-can-require-different-distinctions}
+
+Let \(X=\{0,1\}^n\), \(n\ge1\), and take as admissible instances the
+Boolean functions represented by CNFs of width at most two. Observations
+reveal the function value at one assignment, and the tasks are
+satisfiability and exact count. The alternative formulas used in the
+proof below have at most \(2n\) clauses.
+
+\begin{manualstatement}
+
+{{\upshape \textbf{Proposition 3.3 (Point-access separation on small
+CNFs).}}} For every \(a\in X\), the function with satisfying set
+\(\{a\}\) has a one-observation satisfiability certificate and an
+exact-count certificate of size \(2^n\) in this model. All \(2^n\) point
+observations suffice for counting any admissible instance.
+
+\end{manualstatement}
+
+\begin{manualproof}
+
+\textbf{Proof.} A positive answer at \(a\) certifies satisfiability. The
+empty transcript certifies nothing, since the identically false function
+is admissible.
+
+For counting, the point \(a\) must be observed to separate \(\{a\}\)
+from the empty satisfying set, and every other point \(b\) must be
+observed to separate \(\{a\}\) from \(\{a,b\}\). Both alternatives lie
+in the stated CNF class: a singleton is specified by unit clauses, and
+the false function by two contradictory units. To specify \(\{a,b\}\)
+when \(a\ne b\), fix all coordinates on which they agree, choose a
+coordinate on which they differ, and require each other differing
+coordinate to follow it with the appropriate sign. Each such equivalence
+uses two width-two clauses, so the total is at most \(2n\). Thus all
+points are necessary, and observing all of them is sufficient.
+\(\square\)
+
+\end{manualproof}
+
+The example isolates a difference between tasks; it is no hard family
+for 2-CNF formulas supplied in full. Under point access, counting cannot
+stop at a satisfying witness, because an unobserved assignment may
+change the count. A written clause list gives different information and
+supports different operations. Indeed, the two-point formulas in the
+proof expose their small satisfying sets on sight.
+
+For an \(L\)-bit input given in full, reading the \(L\) bits
+reconstructs the entire instance. Every task then has an acquisition
+procedure using at most \(L\) bit observations, once subsequent internal
+computation goes uncharged. We formalize this operational statement as
+well. It rules out using a point-access information bound as a
+running-time lower bound for arbitrary computation on a formula given in
+full.
+
+\subsection{A sufficient condition for transfer between
+representations}\label{a-sufficient-condition-for-transfer-between-representations}
+
+Suppose a representation map \(R:\mathcal C\to\mathcal C'\) preserves
+admissibility and the task: \(q'(R(x))=q(x)\). For each new observation
+\(e'\), suppose a specified finite set \(S(e')\subseteq E\) and a
+decoder satisfy \[o'_{e'}(R(x))=
+ d_{e'}\bigl((o_e(x))_{e\in S(e')}\bigr)
+\qquad(x\in\mathcal C).\] The sets are fixed for each \(e'\), so this is
+a finite, nonadaptive simulation of an individual observation.
+
+\begin{manualstatement}
+
+{{\upshape \textbf{Proposition 3.4 (Observation simulation).}}} Assume
+the new observation family is finite. If \(K>0\) and
+\[\sum_{e\in S(e')}c_e\le Kc'_{e'}
+\quad\text{for every }e',\] then the weighted certificate infima satisfy
+\[\operatorname{cert}_{q,c}(x)
+\le K\operatorname{cert}_{q',c'}(R(x)).\]
+
+\end{manualstatement}
+
+\begin{manualproof}
+
+\textbf{Proof.} Replace each observation in a new certificate \(T'\) by
+\(S(e')\). Agreement on their union gives equal decoded answers, so task
+preservation transports the certificate to \(x\). Nonnegative costs
+bound the union's cost by the sum of its parts, at most
+\(K\sum_{e'\in T'}c'_{e'}\). Since the new observation family is finite,
+an attaining certificate exists whenever any certificate does, which
+gives the infimum comparison. A missing new certificate gives the value
+\(\infty\). \(\square\)
+
+\end{manualproof}
+
+The proposition compares acquisition costs. Its decoder is a
+mathematical function, so it carries no efficiency guarantee.
+Representation construction, decoding, arithmetic, query selection and
+the reuse of intermediate results each need their own running-time
+analysis. In particular, a missing simulation leaves a faster algorithm
+unrefuted; it only means that this transfer argument is unavailable.
+
+\section{What the algebraic algorithms
+compute}\label{what-the-algebraic-algorithms-compute}
+
+\subsection{Recovery from polynomial
+data}\label{recovery-from-polynomial-data}
+
+In the rational interpolation route of \citep[Sections 2.4--2.7]{O26}, a
+bounded-occurrence formula is encoded by a univariate polynomial \(H\)
+with \[H(0)=\#F,\qquad \deg H\le MR\le3nR.\] Here \(M\) is a
+total-incidence budget and \(R\) controls the fixing polynomial. The
+algorithm computes initial Taylor coefficients at \(Q\) interpolation
+points and recovers the desired value from them. For arbitrary
+bounded-degree polynomials, the information threshold behind that
+recovery is exact.
+
+\begin{manualstatement}
+
+{{\upshape \textbf{Proposition 4.1 (Ambient Hermite threshold).}}} Let
+\(t_1,\ldots,t_Q\) be distinct nonzero rational numbers, let
+\(J_i\in\mathbb N\), and let \(d\in\mathbb N\). Among rational
+polynomials of degree at most \(d\), the coefficients of \((X-t_i)^k\)
+for integers \(0\le k<J_i\) determine the value at zero for every
+polynomial if and only if \[\sum_{i=1}^Q J_i>d.\]
+
+\end{manualstatement}
+
+\begin{manualproof}
+
+\textbf{Proof.} Equality of the jets makes the polynomial difference
+divisible by \[P(X)=\prod_{i=1}^Q(X-t_i)^{J_i}.\] Distinct nodes give
+coprime factors. If \(\deg P>d\), divisibility forces the difference to
+vanish. If \(\deg P\le d\), then \(H\) and \(H+P\) have the same
+requested jets and stay within the degree bound, yet they differ at zero
+because \(P(0)\ne0\). \(\square\)
+
+\end{manualproof}
+
+Here the ambient class matters, because adding \(P\) need not produce
+another polynomial generated by a CNF encoding. Its necessity direction
+therefore leaves open whether the threshold is optimal for that
+restricted family, or for every way of recovering its count. For
+\(Q\ge1\), sufficiency does justify the standard choice
+\[q=\left\lfloor\frac{3nR}{Q}\right\rfloor,
+\qquad J=q+1,
+\qquad QJ>3nR.\]
+
+The computational question is how the jets are obtained. In the cited
+construction, shared integer measurements separate variable groups.
+Taylor coefficients of order at most \(q\) then reduce to small-support
+substitutions and group sums, and the complete substitution family has
+size \[A(n,q)=\sum_{j=0}^{\min(q,n)}2^j\binom nj.\] In the source's
+accounting this factor multiplies the enumeration of measurement values
+and of assignments inside a group, giving the representative product
+\[A(n,q)\,(2D+1)^{2\tau n}\,2^{2n/r},\] up to further polynomial and
+implementation factors \citep{O26}. To evaluate the finite-difference
+identity, the routine visits every pair \(U\subseteq E\subseteq[n]\)
+with \(|E|\le q\). Here \(U\) fixes the Taylor correction, and \(E\)
+fixes which assignment coordinates must equal one in the inner sum. For
+each pair the routine scans shared measurement tuples and forms products
+of local group sums; one correction with one measurement tuple can touch
+several groups \citep[Sections 3.3--3.5]{O26}. Faster interpolation of
+the resulting jets would therefore leave this loop in place. Avoiding it
+means computing the signed aggregate by some other procedure, and the
+dependence across groups still allows reuse, dynamic programming or a
+different factorization.
+
+\subsection{Exact network identities and their
+implementation}\label{exact-network-identities-and-their-implementation}
+
+The Claude algorithm builds a network with a bit for each literal
+occurrence, clause factors, and equality factors linking the occurrences
+of one variable. Its network sum is the exact count. An exact crossing
+identity replaces a crossing by a signed sum of pieces with a simpler
+row or column direction, and grouping and recursion then compute the
+resulting sums \citep[Sections 3--6]{Ant26}.
+
+Its abstract network model charges for factor and membership evaluation
+and bounds integer magnitudes. In the implementation, a grouped table
+query is computed by summing over the grouped local assignments rather
+than read from a materialized table of free answers. Recursive calls
+receive evaluator procedures, and the stronger variable bound also uses
+truncated inclusion--exclusion and deterministic restrictions
+\citep[Appendices B--D]{Ant26}.
+
+This is a second way to resolve interactions jointly. It leaves the
+number of assignments the answer concerns where it was; what it reduces
+is the work of combining their contributions. Proposition 3.4 therefore
+gives no identification of this network computation with point
+observations, and the swap hypotheses of Section 5 have not been derived
+for it.
+
+Brito's subsequent analysis gives a related example of a
+construction-specific restriction \citep{Brito26}. For the relevant
+graded shape, rank subadditivity bounds the number of crossing
+directions that its pieces can supply. In the application using all
+basis labels, the crossing has rank \((\dim V_h)^2\), while the
+directional pieces have total rank at most \((4h+1)\dim V_{\le4h}\).
+This growth constraint concerns that shape and its dimension accounting
+rather than counting in general. Our result below uses different
+operators, and it proves their rank identity exactly.
+
+\subsection{Related method-specific
+obstructions}\label{related-method-specific-obstructions}
+
+Dias and Lima study clause-product interpolation with restored
+occurrence polynomials, arbitrary nonzero rational evaluation points,
+and possibly unequal Taylor orders \citep[Sections 5--9]{DL26}. In their
+setting, recovery must be exact for every polynomial up to the declared
+degree bound. Their evaluation model charges for group size, interaction
+width and Taylor order, with a further measurement-rank charge for
+product-type evaluation. A vanishing-product argument ties these
+parameters to the input's graph structure, which yields a
+treewidth-scale obstruction and, on specified random formulas, a
+\(2^{\Omega(\sqrt n)}\) model-cost bound. Their stated charges exclude
+some alternative computations inside groups, and their scope discussion
+explains why the sharper parity and tensor routes escape the model.
+Theorem 5.1 instead fixes one swap operator family together with its
+dimension budget. Its larger exponent concerns a more specific
+enumeration contract, so the exponents alone decide nothing about which
+result is the stronger one.
+
+Majdoddin studies an arithmetic-cost class of rewrite-and-merge
+algorithms for weighted clique sums \citep[Definition 4.2 and Section
+4]{Maj26}. His model evaluates every product choice and charges
+materialized tables and recursive calls. Its balanced homogeneous
+two-merge subclass has a rate floor of \((\log_2K)^{-3}\) under the
+stated base-method condition. With network size \(S=\Omega(n)\) and
+\(K\) bounded by a polynomially bounded clause count, this excludes
+fixed-power improvements. Stronger grid bounds and separate single-block
+statements carry their own hypotheses. These are public
+near-exponential-scale results for specified network recursions. They
+supply none of the fixing, row or dimension conditions of our swap
+theorem, and our arbitrary-measurement quantifier in turn leaves that
+recursive algorithm class uncovered.
+
+Tulsyan gives the closest comparison \citetext{\citealp[Section
+5]{T26}; \citealp[Sections 1--3]{T26note}}. His supplementary note
+records the defect-rank identity for the commutative swap algebra, and a
+triangular-submatrix argument then bounds defect rank for a broader
+support-constrained matrix class, noncommuting operators included. His
+paper states an asymptotic near-exponential template-cost consequence on
+linked bounded-occurrence formulas, using the Arora--Rao--Vazirani
+structure theorem, the specified Taylor enumeration and a vanishing
+measurement rate. Its full-label tail argument and its linked-input
+argument rest on different assumptions. These claims already place the
+near-exponential scale in this line of work. Our finite bound below
+reaches it by a direct parity-agreement argument, an explicit dimension
+budget and the complete clipped sum, so it needs neither a linked-input
+hypothesis nor a geometric structure theorem. We formalize the entire
+implication together with the measurement map, rather than take the
+external template proposition as a premise.
+
+The comparisons are summarized by the quantity each result constrains:
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.2590}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.4037}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3374}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Result
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Permitted mechanism
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Bounded quantity
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Dias--Lima & Clause-product schemes with declared evaluation charges &
+Model evaluation cost \\
+Majdoddin & Restricted recursive rewrites and merges & Arithmetic-cost
+exponent \\
+Tulsyan & Support-constrained template matrices and specified input
+conditions & Defect rank and asymptotic template cost \\
+Theorem 5.1 & Full swap history, univariate fixing, row and dimension
+budgets & Complete clipped enumeration cardinality \\
+\end{longtable}
+}
+
+An implication between these models needs a construction that preserves
+their hypotheses and charges. In particular, the freedom to choose any
+rational measurement map for a fixed operator yields a bound for that
+operator alone. It yields none for every polynomial deformation, every
+network recursion or the general point-dependent layout interface.
+
+\section{A near-exponential tradeoff for swap-based
+fixing}\label{a-near-exponential-tradeoff-for-swap-based-fixing}
+
+\subsection{Construction and theorem}\label{construction-and-theorem}
+
+Fix integers \(r\ge2\) and \(Q\ge1\). Let \[\mathcal H=([r]\times[r])^Q,
+\qquad V=\mathbb Q^{\mathcal H},
+\qquad D=\dim V=r^{2Q}.\] For \(s\in[Q]\), let \(\Pi_s\) exchange the
+two labels at position \(s\). These commuting involutions act on the
+coordinate space \(V\) itself. We define \[V_0=\prod_{s=1}^Q\Pi_s,
+\qquad W_0=\frac12\sum_{s=1}^Q(I-\Pi_s),
+\qquad M_f=V_0f(W_0)\] for \(f\in\mathbb Q[X]\).
+
+Rational linear measurements \(C:V\to\mathbb Q^m\) enter the
+construction through one requirement, that a vector with zero
+measurements is fixed by \(M_f\):
+\[\ker C\subseteq\ker(I-M_f).                 \tag{5.1}\] This is a
+property for an application to check. It admits arbitrary rational
+measurement rows, in any basis.
+
+\newpage
+
+\begin{manualstatement}
+
+{{\upshape \textbf{Theorem 5.1 (Measurement, degree, and
+enumeration).}}} Let \(r,Q,R,m,n\) be nonnegative integers with
+\(r\ge2\), \(Q\ge1\), and \(R\ge1\). Let \(f\in\mathbb Q[X]\) have
+degree less than \(R\), let \(\tau\in\mathbb R\) satisfy
+\(0\le\tau\le1\), and let \(C:V\to\mathbb Q^m\) be \(\mathbb Q\)-linear
+and satisfy (5.1) and
+\[m\le\frac{D\tau}{3r}.                       \tag{5.2}\] Then
+\[R\ge1+\frac{5\sqrt Q}{24}.                  \tag{5.3}\] If also
+\(n\ge2^{16}\) and a real dimension budget \(M\) satisfies
+\[12D^2\le M\le3n,                            \tag{5.4}\] then
+\(Q\le\tfrac14\log_2 n\), and, with \(q=\lfloor3nR/Q\rfloor\),
+\[A(n,q)\ge
+2^{\,n\log_2\log_2 n/(4\sqrt{\log_2 n})}.   \tag{5.5}\] For every fixed
+real \(\varepsilon>0\), there is a threshold \(N_\varepsilon\),
+independent of \(r,Q,R,m,f,\tau,M,C\), such that every choice satisfying
+these contracts with \(n\ge N_\varepsilon\) obeys
+\[2^{n^{1-\varepsilon}}\le A(n,q)\le3^n.       \tag{5.6}\]
+
+\end{manualstatement}
+
+Here the quantification runs over the operators and measurement maps
+themselves. Neither a spectrum nor a degree lower bound enters as a
+hypothesis, since the proof establishes both. Its last statement is
+uniform over the whole family, and it charges an implementation that
+visits every member of the enumeration at least once. A different
+computation of the resulting sum is a different question.
+
+\subsection{Exact spectrum and the measurement
+requirement}\label{exact-spectrum-and-the-measurement-requirement}
+
+On a single pair space, use the basis consisting of the diagonal vectors
+\(e_{aa}\), the symmetric vectors \(e_{ab}+e_{ba}\) for \(a<b\), and the
+antisymmetric vectors \(e_{ab}-e_{ba}\) for \(a<b\), so that the swap
+has positive and negative eigenspace dimensions
+\[s=\frac{r(r+1)}2,\qquad a=\frac{r(r-1)}2.\] Tensoring these bases
+produces a basis of \(V\). A tensor with exactly \(j\) antisymmetric
+factors has \(W_0\)-eigenvalue \(j\) and \(V_0\)-eigenvalue \((-1)^j\),
+with multiplicity \(\binom Qj a^j s^{Q-j}\). Consequently,
+\[\operatorname{rank}(I-M_f)
+ =\sum_{\substack{0\le j\le Q\\ f(j)\ne(-1)^j}}
+   \binom Qj a^j s^{Q-j}
+ =D\Pr[f(W)\ne(-1)^W],                     \tag{5.7}\] where
+\[W\sim\operatorname{Bin}(Q,p),
+\qquad p=\frac{r-1}{2r}\in[1/4,1/2].\]
+
+The commutative-algebra reading of (5.7) appears in \citep[Section
+1.2]{T26note}. Here the rational pair and tensor bases, the
+multiplicities and the operator identity are all established in the
+formal development.
+
+Kernel containment (5.1) and rank--nullity imply
+\[\operatorname{rank}(I-M_f)\le\operatorname{rank}C\le m,\] so together
+with (5.2) the exact identity (5.7) gives
+\[\Pr[f(W)\ne(-1)^W]\le\frac\tau{3r}\le\frac16.  \tag{5.8}\]
+
+In the source construction, selecting every eigendirection outside an
+interpolation window is enough to enforce the fixing condition. That
+selected count may exceed the true defect rank, since the polynomial may
+happen to agree with parity elsewhere. Equation (5.7) counts the defect
+itself, so the argument goes through without equating the two
+quantities.
+
+\subsection{Why a low measurement budget forces
+degree}\label{why-a-low-measurement-budget-forces-degree}
+
+If \(f\) is neither constant \(1\) nor constant \(-1\), its agreement
+set with parity on \(\{0,\ldots,Q\}\) has size at most \(2(R-1)\). Each
+agreeing point is a root of \(f-1\) or of \(f+1\), and each of those
+polynomials has at most \(R-1\) roots.
+
+For \(p\in[1/4,1/2]\) and \(Q\ge1\), the elementary binomial estimate
+proved in Appendix A gives \[\max_j\Pr[W=j]\le\frac2{\sqrt Q}.\] Hence
+\[\Pr[f(W)=(-1)^W]\le\frac{4(R-1)}{\sqrt Q}.\] Combining this with (5.8)
+gives \(5/6\le4(R-1)/\sqrt Q\), which proves (5.3).
+
+Both constant cases need their own argument, and the binomial identity
+\(\mathbb E[(-1)^W]=(1-2p)^Q\) supplies it:
+\[\Pr[W\text{ odd}]=\frac{1-(1-2p)^Q}{2}\ge\frac14,
+\qquad
+\Pr[W\text{ even}]\ge\frac12,\] so each constant sign violates (5.8),
+and the zero polynomial is already covered by the nonconstant-sign
+argument.
+
+Agreement of low-degree polynomials with parity is a classical subject
+\citep{ABFR94}. Our \(\sqrt Q\) scale matches interpolation on a central
+binomial window, as used in constructions of probabilistic polynomials
+\citep{AW15}, and sharp uniform atom bounds are known \citep{BCV16}. We
+use an elementary and deliberately loose constant because it gives a
+completely checked implication from the measurement contract as stated.
+We claim no new general parity lower bound.
+
+\subsection{From degree to the complete
+enumeration}\label{from-degree-to-the-complete-enumeration}
+
+Set \(L_2=\log_2 n\). Since \(D=r^{2Q}\ge2^{2Q}\), (5.4) implies
+\(2^{4Q}\le n\), so \(Q\le L_2/4\). Combining this with (5.3) and the
+floor convention gives \[q\ge\frac{5n}{4\sqrt{L_2}}-1.\] For
+\(n\ge2^{16}\), put \(k=\lfloor n/\sqrt{L_2}\rfloor\). Elementary
+estimates give \[1\le k\le\min(q,n),
+\qquad
+\frac{n}{2\sqrt{L_2}}\le k\le\frac n{\sqrt{L_2}}.\] Keeping just the
+\(k\)th term of the complete sum and using \(\binom nk\ge(n/k)^k\)
+yields \[A(n,q)\ge\binom nk
+ \ge\left(\sqrt{L_2}\right)^{n/(2\sqrt{L_2})}
+ =2^{\,n\log_2 L_2/(4\sqrt{L_2})},\] which is (5.5). Clipping at \(n\)
+matters here, since the argument still applies when \(q>n\). By the
+binomial theorem, the complete sum is always at most
+\(\sum_{j=0}^n2^j\binom nj=3^n\).
+
+Finally, for every fixed \(\varepsilon>0\) the exponent in (5.5)
+eventually exceeds \(n^{1-\varepsilon}\). Indeed
+\(4\log_2 n\le n^\varepsilon\) eventually, and once \(L_2\ge16\) we have
+\(\sqrt{L_2}\le L_2\) and \(\log_2 L_2\ge1\), which together give the
+comparison. Since that threshold depends on \(\varepsilon\) alone, (5.6)
+follows. \(\square\)
+
+\subsection{The source measurement
+map}\label{the-source-measurement-map}
+
+For the measurements the source itself defines, the fixing condition can
+be discharged outright. Let \((b_\alpha)_{\alpha\in\mathcal E}\) be the
+orthogonal tensor basis from Section 5.2, and let \(\nu(\alpha)\) count
+its antisymmetric factors. For a retained set
+\(J\subseteq\{0,\ldots,Q\}\), put
+\[\mathcal S_J=\{\alpha:\nu(\alpha)\notin J\},
+\qquad m_J=|\mathcal S_J|,\] and define the row map by
+\[C_J:V\longrightarrow\mathbb Q^{\mathcal S_J},
+\qquad (C_Jv)_\alpha=\sum_{u\in\mathcal H}b_\alpha(u)v(u).\] Ordering
+the selected rows identifies its codomain with \(\mathbb Q^{m_J}\).
+
+\begin{manualstatement}
+
+{{\upshape \textbf{Proposition 5.2 (Selected spectral measurements).}}}
+Suppose \(f(j)=(-1)^j\) for every \(j\in J\). Then \(C_Jv=0\) implies
+\(M_fv=v\). Every matrix entry of \(C_J\) is \(0\), \(1\) or \(-1\),
+every row has \(\ell_1\)-norm at most \(D\), and
+\[m_J=\sum_{j\notin J}\binom Qj a^j s^{Q-j}
+    =D\Pr[W\notin J],\] where the sum ranges over \(0\le j\le Q\), and
+\(a,s,W\) are as in Section 5.2. Consequently, the tail condition
+\(\Pr[W\notin J]\le\tau/(3r)\) supplies the row budget in Theorem 5.1
+for this constructed map, with no fixing-kernel premise left to assume.
+
+\end{manualstatement}
+
+\begin{manualproof}
+
+\textbf{Proof.} Expand \(v=\sum_\alpha\beta_\alpha b_\alpha\).
+Orthogonality gives \((C_Jv)_\alpha=\|b_\alpha\|^2\beta_\alpha\). Each
+squared norm is positive, so zero measurements force every selected
+coefficient to vanish. Every remaining basis vector has
+\(\nu(\alpha)\in J\) and \(M_f\)-eigenvalue
+\((-1)^{\nu(\alpha)}f(\nu(\alpha))=1\), which proves the fixing
+property. Basis entries lie in \(\{0,1,-1\}\), giving the row-height
+bound. Counting selected indices by their antisymmetric factors gives
+the exact multiplicities and the binomial normalization. \(\square\)
+
+\end{manualproof}
+
+These are precisely the transposed eigenvector rows in the proof of
+OpenAI's auxiliary-matrix lemma \citep[Lemma
+\texttt{lem:\allowbreak{}swaps-\allowbreak{}matrix}]{O26}. In the
+source, \(J\) is a consecutive window and \(f\) its
+degree-less-than-\(|J|\) parity interpolant. Our formal artifact
+constructs such an interpolant, proves its values, degree and
+uniqueness, and composes it with the selected-row map and Theorem 5.1;
+an integer window is handled by retaining its intersection with the
+possible eigenlevels. Where the source writes its interpolant with a
+Newton binomial formula, the formal application uses the unique
+interpolation characterization instead.
+
+This local map \(C_J=C^{\mathcal B}\) is distinct from the formula's
+placed measurements, which the source obtains by taking \(h\) block
+copies, pulling them back along the variable-repetition map \(\iota\),
+and restricting columns to each group:
+\[\widetilde C=\operatorname{diag}(C_J,\ldots,C_J),
+\qquad \widehat C=\widetilde C\iota,
+\qquad C_{t,g}=\widehat C|_{S_{t,g}}.\] Zero rows are retained. In the
+bounded-occurrence clause branch, the source has \(hD\le2M\), incidence
+and scope bounds \(b=w=3\), and \(12D^2\le M\le3n\). The local tail
+budget therefore gives the global row accounting
+\[rh\,m_J\le\frac{hD\tau}{3}
+          \le\frac{2M\tau}{3}\le2\tau n,\] and the artifact checks this
+numerical implication too. Since the placement construction itself comes
+from the source, its global row bound on its own would leave the local
+tail budget underived. In the source, \(0<\tau\le1/2\); the theorem also
+admits the nonnegative boundary.
+
+Its sparse polynomial equation branch \citep[Sections 4.7 and
+5.2--5.5]{O26} uses the same local swap operator and measurement rows
+over \(\mathbb Q\). On a nontrivial branch with \(n'\) free variables,
+the layout instead requires \(2(b+w)D^2\le M\le bn'\) and
+\(2Qr^2\le n'\), with \(b\) and \(w\) bounded by powers of \(\log n'\),
+and its local budget is \(m_J\le D\tau/(rb)\), where
+\(\tau=1/(r\lambda)\) and \(\lambda=\lceil\log_2 n'\rceil\). Thus
+\(\tau_* = 3\tau/b\le1\) for sufficiently large \(n'\), and (5.2) holds
+with \(\tau_*\) in place of \(\tau\), so the same degree floor (5.3)
+follows.
+
+For the enumeration step this branch has its own cutoff
+\(q=\lfloor dR/Q\rfloor\), where the source takes
+\(d=k(m_{\rm test}+2(\ell-1))\) for degree bound \(k\ge1\),
+\(m_{\rm test}\) equations and precision \(\ell=n+1\) on the original
+\(n\ge n'\) variables, so \(d\ge2n'\). With the source's choice
+\(Q=\Theta(\log n'/\log\log n')\), (5.3) gives \(q=\Omega(n'/\sqrt Q)\),
+hence eventually \(q\ge\lfloor n'/\sqrt{\log_2 n'}\rfloor\). Keeping
+that term as in Section 5.4 yields
+\(\log_2 A(n',q)=\Omega(n'\log\log n'/\sqrt{\log n'})\). So the
+near-exponential obstruction applies to the source's complete
+enumeration in this branch as well, with its own cutoff and budgets;
+this derivation uses the checked degree bound and the source's parameter
+choices.
+
+\subsection{What the construction-specific obstruction
+establishes}\label{what-the-construction-specific-obstruction-establishes}
+
+What the theorem closes is one escape route. Within the full history
+space, with a single univariate fixing polynomial, a measurement map
+satisfying (5.1), the row and dimension budgets, and the complete
+substitution enumeration, no change of \(f\) or of the rows of \(C\)
+brings this enumeration down to \(2^{O(n^{1-\varepsilon})}\) for any
+fixed \(\varepsilon>0\). To absorb the constant hidden in that
+\(O\)-notation, apply (5.6) with \(\varepsilon/2\).
+
+This chain also shows what pays for the residual interaction. Few
+measurements leave a large subspace that the operator must fix. Fixing
+that subspace requires agreement with parity on substantial binomial
+mass, the agreement requirement forces degree, and degree forces a large
+substitution family under the dimension budget. So this is a proved
+relation among distinguishable directions, joint algebraic operations,
+and the cost of one recovery procedure.
+
+Proposition 5.2 supplies the local measurement application, and Section
+5.5 accounts for the distinct budgets of the clause and sparse
+polynomial equation branches of \citep{O26}. Everything around them
+keeps its source-level analysis: the formula reduction, the schedule and
+placement construction, the replacement-form support, the coefficient
+bounds and the bit costs. In particular, the present formalization
+covers neither the full counting algorithm nor a transfer of the same
+contracts to \citep{Ant26}. A new representation, a multivariate fixing
+operation, a smaller invariant space or a recovery algorithm that avoids
+complete enumeration would each call for its own analysis.
+
+\section{A refined hardness program}\label{a-refined-hardness-program}
+
+Within its specified family, Theorem 5.1 shows the same fixed-power
+separation that Weak \#ETH asserts. We read that agreement as evidence
+about a mechanism, and nothing more: it establishes no unrestricted
+hypothesis. Its value for the broader question lies in the shape of the
+proof. Its obstruction is attached to a concrete interaction that a
+permitted computation must resolve. That obstruction survives every
+change the model already allows. Proposition 5.2 ties the statement to
+the local measurements the source uses.
+
+A general structural account would have to justify comparable statements
+for a far wider class of computations. Three requirements are
+unavoidable. First, task-changing alternatives must be genuine
+admissible inputs rather than objects in some convenient ambient space;
+Proposition 4.1 shows why. Second, any transfer across representations
+must account for the information supplied and for its acquisition,
+instead of treating an aggregate operation as a point query; Proposition
+3.4 gives one sufficient condition, and no classification. Third,
+computation must be charged at the level of evaluation and recovery as
+performed. That level includes construction, arithmetic precision,
+reuse, and the selection of intermediate objects. The network algorithms
+show why certificate size alone cannot supply these costs.
+
+This leaves a concrete way to investigate the successor hypothesis. For
+a proposed fixed-power improvement, locate the joint operation that
+produces the gain. Identify the interaction it leaves unresolved. Then
+prove a tradeoff that includes the operation's full contract. Section
+4.3 illustrates three realizations of this: graph structure and recovery
+exactness, rewrite-and-merge geometry, and support-constrained rank. Our
+finite spectral analysis adds a checked instance with a source-defined
+measurement map. An obstruction may concern rank, degree, support,
+representation size or the cost of a remaining sum. A new algorithm may
+instead show that the proposed obstruction was tied to too narrow a
+family. Either way the structural claim becomes more precise.
+
+This program is more modest than the slogan that harder problems require
+more work. It is no monotonicity theorem in one syntactic size
+parameter. Easy instances may have long descriptions. Short descriptions
+may encode expensive tasks. The relevant distinctions are relative to
+the requested answer and to the operations available for computing it.
+Nor does the program hold that every change of representation preserves
+hardness. The reported ETH algorithms matter precisely because a
+different organization can lower computational cost.
+
+Our quantitative destination remains \#SH rather than the original ETH
+boundary. Public reduction theory \citep{SH26} already explains how
+fixed-power lower bounds propagate when reduction costs and size blowups
+are controlled. The complementary task pursued here is to explain and
+prove the internal obstruction for one counting mechanism. Extending
+such arguments to arbitrary exact-counting algorithms is open. What the
+present results supply is an independently stated, formally verified
+case in which the refined near-exponential scale persists.
+
+\section{Formalization and
+reproducibility}\label{formalization-and-reproducibility}
+
+Our Lean 4 development uses Mathlib \citep{Lean4, Mathlib20}. Its public
+entry point is \texttt{ETHResponse.\allowbreak{}lean}. Its selected
+import closure contains the task-certificate and transcript results, the
+width-two CNF construction, operational bit reading, finite observation
+simulation, rational Hermite recovery, the swap basis and spectrum, the
+measurement-rank implication, and both the finite and the eventual
+enumeration bounds.
+
+In the formalization, the swap operator acts on rational functions on
+the history product itself. The spectral identity with its binomial
+multiplicities is proved from a rational basis rather than assumed
+numerically. Its general measurement endpoint quantifies over a rational
+linear map satisfying the fixing-kernel condition. An application module
+constructs the transpose rows the source selects. It proves their
+relation to dual coordinates, their entry and height bounds, their row
+count and their kernel property. It composes them with the finite and
+eventual bounds. Separate interpolation and window results discharge the
+parity-agreement premise for the constructed interpolant. Global
+placement matrices lie outside this formal slice.
+
+\texttt{ETHResponse/\allowbreak{}Audit.\allowbreak{}lean} checks the
+transitive axiom dependencies of every loaded declaration in the
+project's mathematical namespaces, private helpers included. It permits
+only propositional extensionality, classical choice and quotient
+soundness. An export records source hashes, pinned dependency revisions,
+build results and the freshly measured declaration count.
+\texttt{CORRESPONDENCE.\allowbreak{}md} maps the paper's mathematical
+statements to named theorem endpoints and their application hypotheses.
+
+So the formalization establishes the mathematical implications stated
+here, and those alone. \#SH itself, its validity, an end-to-end
+verification of either external counting algorithm, and a general time
+lower bound from the point-access example all lie outside it. Each
+accompanying TeX source archive ships the selected Lean project in
+\texttt{anc/\allowbreak{}lean\_\allowbreak{}proofs/\allowbreak{}}, with
+its correspondence document, toolchain and dependency lockfile.
+\texttt{SOURCE\_\allowbreak{}MANIFEST.\allowbreak{}json} identifies the
+proof snapshot by file hashes. The build and axiom receipts bind their
+results to that snapshot. A combined editable package holds both
+manuscripts, the public bibliography and the rebuild tools, whose
+instructions regenerate the PDFs and source packages from that layout.
+
+\appendix
+
+\section{An elementary binomial atom
+bound}\label{an-elementary-binomial-atom-bound}
+
+We include the estimate used in Section 5 to make the numerical degree
+constant independent of an imported asymptotic approximation. Let
+\(b_{m,j}=2^{-m}\binom mj\) be the fair-coin mass. The central-binomial
+recurrence gives \[b_{m,j}^2\le\frac1{m+1}
+\quad\text{for every }m,j\ge0.\] Put \(c_k=4^{-k}\binom{2k}k\). The
+recurrence \((2k+2)c_{k+1}=(2k+1)c_k\) gives \((2k+1)c_k^2\le1\) by
+induction. The maximum mass is \(c_k\) in row \(2k\) and \(c_{k+1}\) in
+row \(2k+1\), proving the bound.
+
+For \(0<p\le1/2\), let \(N\sim\operatorname{Bin}(Q,2p)\). Thinning by
+independent fair coins gives
+\[\Pr[\operatorname{Bin}(Q,p)=j]=\mathbb E[b_{N,j}].\] Cauchy--Schwarz
+and the fair-coin bound imply \[\Pr[\operatorname{Bin}(Q,p)=j]^2
+ \le\mathbb E\!\left[\frac1{N+1}\right]
+ \le\frac1{2p(Q+1)}.\] For \(p\ge1/4\) and \(Q\ge1\), this is at most
+\(2/(Q+1)\) and hence yields the convenient bound \(2/\sqrt Q\) used
+above. The Lean proof establishes the finite mixture identity
+algebraically and proves the inverse-moment upper bound; no
+probabilistic limit theorem is required.
+
+\section{Principal formal endpoints}\label{principal-formal-endpoints}
+
+The table gives short names; each theorem is in the
+\texttt{ExactSolution} namespace. The source correspondence file
+includes the supporting modules and exact application contracts.
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.4822}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5178}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Mathematical statement
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Lean theorem
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Completed transcript is a certificate &
+\texttt{transcript\_\allowbreak{}certificate} \\
+Transcript query lower bound &
+\texttt{transcript\_\allowbreak{}query\_\allowbreak{}lower\_\allowbreak{}bound} \\
+Width-two CNF count separation &
+\texttt{SingletonCNF.\allowbreak{}singleton\_\allowbreak{}count\_\allowbreak{}complexity} \\
+Explicit-input acquisition ceiling &
+\texttt{read\_\allowbreak{}all\_\allowbreak{}operational} \\
+Finite weighted observation simulation &
+\texttt{weighted\_\allowbreak{}observation\_\allowbreak{}simulation} \\
+Ambient Hermite threshold &
+\texttt{hermite\_\allowbreak{}value\_\allowbreak{}at\_\allowbreak{}zero\_\allowbreak{}determined\_\allowbreak{}iff} \\
+Actual swap defect rank &
+\texttt{SwapSpectrum.\allowbreak{}swap\_\allowbreak{}rank\_\allowbreak{}eq\_\allowbreak{}failure\_\allowbreak{}mass} \\
+Measurement-to-degree implication &
+\texttt{MeasurementRank.\allowbreak{}swap\_\allowbreak{}measurement\_\allowbreak{}degree\_\allowbreak{}floor} \\
+Finite clipped-enumeration floor &
+\texttt{MeasurementRank.\allowbreak{}swap\_\allowbreak{}measurement\_\allowbreak{}enumeration\_\allowbreak{}floor} \\
+Uniform eventual near-exponential floor &
+\texttt{swap\_\allowbreak{}measurement\_\allowbreak{}near\_\allowbreak{}exponential} \\
+Complete-enumeration upper bound &
+\texttt{enumerationCount\_\allowbreak{}le\_\allowbreak{}three\_\allowbreak{}pow} \\
+Constructed physical measurement kernel &
+\texttt{SelectedMeasuremen\allowbreak{}ts.\allowbreak{}measurement\_\allowbreak{}fixing\_\allowbreak{}kernel} \\
+Integer measurement-row height &
+\texttt{SelectedMeasuremen\allowbreak{}ts.\allowbreak{}integerMeasurement\allowbreak{}Matrix\_\allowbreak{}l1\_\allowbreak{}le} \\
+Exact selected-row tail count &
+\texttt{SelectedMeasuremen\allowbreak{}ts.\allowbreak{}rowCount\_\allowbreak{}eq\_\allowbreak{}dimension\_\allowbreak{}mul\_\allowbreak{}tail} \\
+Interpolant uniqueness &
+\texttt{SelectedMeasuremen\allowbreak{}ts.\allowbreak{}eq\_\allowbreak{}parityInterpolant} \\
+Constructed interval enumeration &
+\texttt{SelectedMeasuremen\allowbreak{}ts.\allowbreak{}interval\_\allowbreak{}measurement\_\allowbreak{}enumeration\_\allowbreak{}floor} \\
+Uniform interval application &
+\texttt{SelectedMeasuremen\allowbreak{}ts.\allowbreak{}interval\_\allowbreak{}measurement\_\allowbreak{}near\_\allowbreak{}exponential} \\
+Placed-row numerical accounting &
+\texttt{SelectedMeasuremen\allowbreak{}ts.\allowbreak{}placed\_\allowbreak{}row\_\allowbreak{}count\_\allowbreak{}bound} \\
+\end{longtable}
+}
+\bibliographystyle{plainnat}
+\bibliography{references}
+\end{document}

@@ -1,0 +1,248 @@
+% Portable, self-contained Pandoc publication template.
+\documentclass[11pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage[margin=0.9in]{geometry}
+\usepackage{microtype}
+\usepackage{booktabs,longtable,array,calc,multirow}
+\usepackage{etoolbox}
+\usepackage{graphicx}
+\usepackage{xurl}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage[hidelinks,unicode]{hyperref}
+\usepackage{bookmark}
+\urlstyle{same}
+\setcounter{secnumdepth}{3}
+\setlength{\emergencystretch}{3em}
+\setlength{\parskip}{0.2em}
+\allowdisplaybreaks[1]
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\providecommand{\passthrough}[1]{#1}
+\providecommand{\pandocbounded}[1]{#1}
+\AtBeginEnvironment{longtable}{\small\setlength{\tabcolsep}{4pt}}
+\newenvironment{manualstatement}{%
+  \par\addvspace{0.7\baselineskip}\begingroup\itshape\noindent\ignorespaces
+}{\par\endgroup\addvspace{0.4\baselineskip}}
+\newenvironment{manualdefinition}{%
+  \par\addvspace{0.7\baselineskip}\begingroup\normalfont\noindent\ignorespaces
+}{\par\endgroup\addvspace{0.4\baselineskip}}
+\newenvironment{manualproof}{%
+  \par\addvspace{0.4\baselineskip}\begingroup\normalfont\noindent\ignorespaces
+}{\par\endgroup\addvspace{0.5\baselineskip}}
+\title{What Remains Hard after ETH?\\[0.5em]{\large Exact Counting,
+Better Representations, and a Refined Hardness Question}}
+\author{Rohan Vinaik}
+\date{\small 7 November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+A subexponential algorithm can overturn ETH while leaving a very strong
+form of computational hardness intact. The distinction is between
+shaving logarithmic factors from an exponent and reducing that exponent
+by a fixed power. This note explains the public successor hypothesis for
+exact counting, why the task and its representation matter, and what a
+Lean-verified finite tradeoff establishes for one algebraic counting
+construction. It accompanies the technical article,
+\emph{Refining Hardness after ETH}.
+\end{abstract}
+\section{A boundary can fail without the whole landscape
+collapsing}\label{a-boundary-can-fail-without-the-whole-landscape-collapsing}
+
+The Exponential Time Hypothesis made a precise prediction about
+satisfiability: no deterministic algorithm would solve 3-SAT in
+\(2^{o(n)}\) time, apart from polynomial input factors, where \(n\) is
+the number of variables. The recent OpenAI and Claude papers report
+algorithms that cross this boundary, including algorithms that compute
+the exact number of satisfying assignments \citep{O26, Ant26}. If those
+analyses are correct, the original ETH is false.
+
+But the boundary was specific. Consider the difference between
+\[2^{n/\sqrt{\log n}}\qquad\text{and}\qquad2^{\sqrt n}.\] Both are
+subexponential. Their gains are very different. In the first, the
+exponent remains larger than \(n^{0.99}\), or indeed
+\(n^{1-\varepsilon}\) for any fixed positive \(\varepsilon\), once \(n\)
+is sufficiently large. In the second, its power has dropped to one half.
+
+That leaves a strong question after ETH: can exact counting achieve a
+fixed-power improvement in its exponent, or does its worst-case
+complexity retain the scale \(2^{n^{1-o(1)}}\)?
+
+This question already has a public mathematical formulation. The
+counting Satisfiability Hypothesis, \#SH, excludes exact CNF-counting
+algorithms with running time \(O(2^{L^{1-\varepsilon}})\) for every
+fixed \(\varepsilon>0\), where \(L\) counts the formula's variables,
+clauses, and literal occurrences. MIT Hardness Group proves that it is
+equivalent to Weak \#ETH, the corresponding variable-based hypothesis
+for \#3-SAT with polynomial input factors \citep{SH26}. The hypothesis
+remains unproved. The reported logarithmic improvements in the exponent
+do not, by themselves, contradict it.
+
+The technical article accompanying this note asks what structural
+reasoning could support such a refined hardness claim \citep{Main26}.
+Its aim is to identify the work an exact computation still has to do
+after a better representation has delivered a substantial gain.
+
+\section{What does the answer require us to
+distinguish?}\label{what-does-the-answer-require-us-to-distinguish}
+
+An exact count depends on which assignments satisfy a formula. It does
+not follow that every assignment must be checked separately. Algebraic
+summation, decomposition, and symmetry can combine many contributions in
+one computation. Any argument for hardness has to account for those
+joint operations.
+
+A small example makes the role of access clear. Suppose we can inspect a
+Boolean function only by asking whether a chosen assignment satisfies
+it. If exactly one assignment satisfies the function, seeing that
+positive answer certifies satisfiability immediately. It does not
+certify an exact count of one. Every uninspected assignment might be
+another satisfying assignment.
+
+This difference persists even when all the alternative functions have
+short width-two CNF descriptions. A singleton satisfying set needs only
+unit clauses. A two-point satisfying set can be expressed with fixed
+coordinates and signed equivalences. Under the declared point
+observations, exact counting needs all \(2^n\) answers, while
+satisfiability at a singleton needs one.
+
+The example establishes an information requirement for those
+observations. It does not establish exponential running time for a
+program given the actual formula. Reading an explicit clause list
+provides different information. In fact, reading all the bits of an
+input acquires the whole input; the remaining difficulty lies in
+computing with it.
+
+This is the first lesson for a refined account of hardness. The task
+determines which alternatives matter. The permitted operations determine
+which alternatives can be resolved together. Their implementation
+determines the computational cost. Counting candidates, or counting
+certificates alone, does not settle all three questions.
+
+A change of representation can therefore be a real algorithmic advance
+even when it preserves every distinction relevant to the answer. It may
+simply make those distinctions much cheaper to resolve jointly.
+Transferring an old lower bound requires a stated relation between the
+old and new operations, including their costs. The technical article
+proves one finite observation-simulation criterion, and states its
+limits explicitly.
+
+\section{Where the algebraic gain
+occurs}\label{where-the-algebraic-gain-occurs}
+
+In one route through the OpenAI construction, a formula is converted
+into a polynomial \(H\) whose value at zero is the exact count. The
+algorithm computes Taylor data at other points and reconstructs the
+required value. These data do not arrive for free. They are obtained
+through measurements, substitutions, and sums over variable groups
+\citep{O26}.
+
+The reconstruction has a familiar information threshold. For arbitrary
+rational polynomials of degree at most \(d\), initial Taylor
+coefficients at distinct nonzero points determine the value at zero
+exactly when their total number exceeds \(d\). Below that threshold,
+adding the product of the required vanishing factors preserves all the
+observed coefficients while changing the value at zero.
+
+That statement still does not determine the algorithm's running time.
+Nor does its necessity automatically hold within the narrower family of
+polynomials generated by formulas: the added polynomial may not belong
+to that family. A useful lower-bound argument must reach the actual
+computational construction.
+
+The Claude method provides another route. It rewrites the counting
+problem as a network sum and uses exact identities to replace difficult
+crossings by sums of simpler pieces. Derived table values are evaluated
+by procedures, with their costs tracked recursively \citep{Ant26}. Its
+gain comes from how contributions are combined. An argument assuming
+that those procedures only inspect individual satisfying assignments
+would miss the mechanism.
+
+The common question is what interaction remains expensive after the
+joint operation has been exploited. Recent analyses already address this
+question within specified methods: Dias and Lima study interpolation
+evaluation charges, Majdoddin studies restricted network recursions, and
+Tulsyan studies support-constrained counting templates
+\citep{DL26, Maj26, T26}. Their permitted operations and cost models
+differ. The companion article compares them and supplies a fully checked
+finite analysis and measurement application for the swap and
+polynomial-fixing family. Its broader question remains how to make such
+structural explanations precise across representations.
+
+\section{A proved obstruction at the refined
+scale}\label{a-proved-obstruction-at-the-refined-scale}
+
+The construction has a finite space indexed by histories of coordinate
+swaps. A polynomial in the swap-count operator is used to fix a large
+subspace. Measurements control the remaining directions. A smaller
+polynomial degree would reduce the substitutions needed later, but the
+measurement budget limits how many unfixed directions can be handled.
+
+The theorem proves this tradeoff using the actual operators. Their
+spectrum has an explicit binomial distribution. A small number of
+measurement rows forces the fixing polynomial to agree with alternating
+signs on most of that distribution. Root counting and a binomial atom
+bound then force the polynomial's degree to be at least a constant times
+the square root of the number of swap positions.
+
+The degree floor feeds into the specified recovery procedure. Write
+\(n\) for its variable budget, \(R\) for the fixing polynomial's
+positive degree budget, and \(Q\ge1\) for the number of swap positions.
+The recovery uses \(q=\lfloor3nR/Q\rfloor\). Its complete substitution
+family has size \[A(n,q)=\sum_{j=0}^{\min(q,n)}2^j\binom nj\] Under the
+fixing condition and the construction's row and dimension budgets, the
+theorem gives \[A(n,q)\ge
+2^{\,n\log_2\log_2 n/(4\sqrt{\log_2 n})}
+\qquad(n\ge2^{16}).\] It follows that for every fixed \(\varepsilon>0\),
+beyond a threshold depending only on \(\varepsilon\),
+\[2^{n^{1-\varepsilon}}\le A(n,q)\le3^n.\] The threshold is uniform over
+every permitted fixing polynomial, measurement map, and parameter
+choice. Thus changing the polynomial or measurement rows within these
+contracts cannot give the complete enumeration a fixed-power improvement
+in its exponent.
+
+The source's sparse parity route uses different budgets and a different
+Taylor cutoff. The same degree argument still forces a near-exponential
+substitution family there, as the article shows \citep[Section
+5.5]{Main26}. In both routes the result charges the routine that visits
+each term. A faster way to compute the aggregate, or a different family
+of operators, could change the cost.
+
+The proof identifies a specific unresolved interaction and shows where
+its cost reappears: measurement capacity forces agreement, agreement
+forces degree, and degree forces enumeration. The spectral mechanism and
+the near-exponential template scale have public antecedents. The Lean
+development checks the finite chain and uniform eventual bound,
+constructs the physical rows selected by the source algorithm, and
+proves their fixing property, row count and height bounds
+\citep{Main26}. The full formula-placement and counting algorithms
+retain their separate source analyses.
+
+\section{The broader claim remains a precise research
+question}\label{the-broader-claim-remains-a-precise-research-question}
+
+The unrestricted \#SH hypothesis concerns every deterministic
+exact-counting algorithm. The theorem above concerns one defined family.
+A proof of the former cannot be obtained just by removing the
+qualifications from the latter.
+
+What the result supplies is an example of the kind of account a broader
+argument needs. It attaches hardness to task-changing alternatives and
+the actual operations used to resolve them. It allows a representation
+to produce a substantial gain, then proves a remaining tradeoff rather
+than assuming that the original cost survives unchanged.
+
+The reported ETH algorithms make this distinction necessary. They show
+that an exponential-scale prediction can be too strong. They do not show
+that exact counting admits a fixed-power reduction in its exponent.
+Public successor hypotheses make that remaining claim legible and
+testable; construction-specific theorems can explain particular reasons
+it persists.
+
+That is the direction developed in the companion paper: preserve the
+serious hardness question, refine its quantitative statement, and prove
+each structural obstruction at the scope its assumptions justify.
+\bibliographystyle{plainnat}
+\bibliography{references}
+\end{document}

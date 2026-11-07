@@ -1,0 +1,94 @@
+{
+  "audit_module": "ETHResponse.Audit",
+  "axiom_declaration_count": 709,
+  "axiom_report_sha256": "d88e0ae9e4ddb05c19405ee07e267ed67951a0c3ec7868490c64ac7d5b5a0f48",
+  "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "build_log_sha256": "50678163c4c448014af76dbc4030610f1a35cd2170427450281b43cbdaf51de2",
+  "dependency_cache_setup_needed": false,
+  "dependency_revisions": [
+    {
+      "name": "mathlib",
+      "revision": "8f9d9cff6bd728b17a24e163c9402775d9e6a365"
+    },
+    {
+      "name": "plausible",
+      "revision": "55c8532eb21ec9f6d565d51d96b8ca50bd1fbef3"
+    },
+    {
+      "name": "LeanSearchClient",
+      "revision": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843"
+    },
+    {
+      "name": "importGraph",
+      "revision": "85b59af46828c029a9168f2f9c35119bd0721e6e"
+    },
+    {
+      "name": "proofwidgets",
+      "revision": "be3b2e63b1bbf496c478cef98b86972a37c1417d"
+    },
+    {
+      "name": "aesop",
+      "revision": "f642a64c76df8ba9cb53dba3b919425a0c2aeaf1"
+    },
+    {
+      "name": "Qq",
+      "revision": "b8f98e9087e02c8553945a2c5abf07cec8e798c3"
+    },
+    {
+      "name": "batteries",
+      "revision": "495c008c3e3f4fb4256ff5582ddb3abf3198026f"
+    },
+    {
+      "name": "Cli",
+      "revision": "4f10f47646cb7d5748d6f423f4a07f98f7bbcc9e"
+    }
+  ],
+  "entrypoint": "ETHResponse",
+  "finished_at_utc": "2026-11-07T15:00:14.795429+00:00",
+  "fresh_export_build": {
+    "command": [
+      "lake",
+      "--no-ansi",
+      "--wfail",
+      "build",
+      "ETHResponse",
+      "ETHResponse.Audit"
+    ],
+    "exit_code": 0,
+    "initial_project_build_cache": false,
+    "pinned_dependency_cache_reused": true,
+    "project_source_modules_rebuilt": 28
+  },
+  "generator": "proofs/export.py --verify",
+  "independent_axiom_checks": {
+    "fresh_export": "passed",
+    "workspace": "passed"
+  },
+  "lean_module_count": 28,
+  "lean_toolchain": "leanprover/lean4:v4.28.0",
+  "mathlib_revision": "8f9d9cff6bd728b17a24e163c9402775d9e6a365",
+  "profile": "eth_response",
+  "schema_version": 1,
+  "source_file_count": 33,
+  "source_manifest_sha256": "75fd48f3af4ee1627aa1942f42d411e7e4d255705a2ccea35b66d956f949e8a0",
+  "started_at_utc": "2026-11-07T14:54:46.059809+00:00",
+  "status": "passed",
+  "warnings": [],
+  "warnings_fail_build": true,
+  "workspace_build": {
+    "command": [
+      "lake",
+      "--no-ansi",
+      "--wfail",
+      "build",
+      "ETHResponse",
+      "ETHResponse.Audit"
+    ],
+    "exit_code": 0
+  },
+  "workspace_configuration_sha256": "807d55bbd32cc2316c4e02f97f40155e80e36674a1227fa354d92b62b8fad473"
+}

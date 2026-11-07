@@ -1,0 +1,16 @@
+name = "ETH_Response_proofs"
+version = "0.1.0"
+defaultTargets = ["ETHResponse", "ETHResponse.Audit"]
+
+[[require]]
+name = "mathlib"
+git = "https://github.com/leanprover-community/mathlib4.git"
+rev = "v4.28.0"
+
+[[lean_lib]]
+name = "ExactSolution"
+roots = ["ExactSolution.BinomialMode", "ExactSolution.Composition", "ExactSolution.Covering", "ExactSolution.DegreeFloor", "ExactSolution.Discovery", "ExactSolution.Enumeration", "ExactSolution.Hermite", "ExactSolution.MeasurementRank", "ExactSolution.MeasurementRank.Basic", "ExactSolution.NearExponential", "ExactSolution.Observability", "ExactSolution.Observation", "ExactSolution.PolynomialAgreement", "ExactSolution.ReadAll", "ExactSolution.SelectedMeasurements", "ExactSolution.SelectedMeasurements.Rows", "ExactSolution.Simulation", "ExactSolution.SingletonCNF", "ExactSolution.SwapSpectrum", "ExactSolution.SwapSpectrum.Multiplicity", "ExactSolution.SwapSpectrum.Operators", "ExactSolution.SwapSpectrum.PairBasis", "ExactSolution.SwapSpectrum.TensorBasis", "ExactSolution.SwapSpectrum.Values", "ExactSolution.Transcript", "ExactSolution.WeightedObservation"]
+
+[[lean_lib]]
+name = "ETHResponse"
+roots = ["ETHResponse"]

@@ -1,0 +1,49 @@
+{
+  "title": "Refining Hardness after ETH: Task-Relevant Distinctions and the Cost of Exact Counting",
+  "upload_type": "publication",
+  "publication_type": "preprint",
+  "publication_date": "2026-11-07",
+  "version": "1.0.0",
+  "language": "eng",
+  "license": "CC-BY-4.0",
+  "creators": [
+    {
+      "name": "Vinaik, Rohan"
+    }
+  ],
+  "description": "<p>The reported subexponential algorithms for satisfiability leave a strong successor question: can exact counting gain a fixed power in its exponent? We examine that question through the distinctions a task requires, the operations that resolve them jointly, and what those operations cost, with the public hypotheses #SH and Weak #ETH as the quantitative setting. After comparing the existing method-specific barriers, we give a fully formalized finite analysis of the coordinate-swap construction behind one interpolation algorithm. We construct the measurement rows it selects, prove their fixing-kernel property and their exact row count, and connect them to a uniform tradeoff among measurement, degree and enumeration. Under the stated row and dimension budgets, the complete clipped substitution enumeration has size at least 2^(n log<sub>2</sub> log<sub>2</sub> n / (4 sqrt(log<sub>2</sub> n))) for n &ge; 2<sup>16</sup>, and eventually at least 2^(n^(1-&epsilon;)) for every fixed &epsilon; &gt; 0. This bounds the enumeration as completed; an algorithm that evaluates its aggregate by other operations calls for a separate analysis. The supporting mathematical implications and the constructed-measurement application are checked in Lean 4, and the unrestricted counting hypothesis stays open.</p><p><strong>Files.</strong> <code>refining_hardness_after_eth.pdf</code> is the 17-page preprint. <code>what_remains_hard_after_eth.pdf</code> is a 4-page explanatory note. <code>lean_proofs.zip</code> is the Lean 4 development (Lean and Mathlib v4.28.0; 709 audited declarations; axioms limited to propext, Classical.choice and Quot.sound; builds with <code>lake exe cache get &amp;&amp; lake build</code>), distributed under the MIT License. <code>editable_source_bundle.zip</code> contains the editable sources, both TeX source archives with the Lean sources as ancillary files, and the verification records. <code>SUBMISSION_VERIFICATION.json</code> records the clean-extraction rebuild of both documents.</p>",
+  "keywords": [
+    "Exponential Time Hypothesis",
+    "Satisfiability Hypothesis",
+    "Weak ETH",
+    "exact counting",
+    "#SAT",
+    "computational complexity",
+    "lower bounds",
+    "Lean 4",
+    "formal verification",
+    "Mathlib"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/rohanvinaik/refining-hardness-after-eth",
+      "relation": "isSupplementTo",
+      "resource_type": "software"
+    },
+    {
+      "identifier": "arXiv:2611.02650",
+      "relation": "references",
+      "resource_type": "publication-preprint"
+    },
+    {
+      "identifier": "https://github.com/openai/math/blob/42907c9e999cc00d6abe7a50bfc1023250edd1b9/preprints/The-Exponential-Time-Hypothesis-is-False-October-25-2026/build/main_full_version.tex",
+      "relation": "references",
+      "resource_type": "publication-preprint"
+    },
+    {
+      "identifier": "https://hexagonmath.org/2610.00577v1",
+      "relation": "references",
+      "resource_type": "publication-preprint"
+    }
+  ]
+}

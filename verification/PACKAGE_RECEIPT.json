@@ -1,0 +1,11 @@
+{
+  "archive": "eth_submission_draft.zip",
+  "archive_bytes": 681557,
+  "archive_sha256": "ad4994846de3095ee63ad00e4c534ddd1f8b50ff66d554b1fe120ffc7f906dc3",
+  "manifest_sha256": "07d11edd85f3bf6481b32623499a4efdcca01d4a6211dcefe815ecba60c526c5",
+  "members": 102,
+  "profile": "eth_response",
+  "schema_version": 1,
+  "status": "passed",
+  "verification_sha256": "6eeb5e9d6a714e0399ffeca2cc1fe35194e604565cff571faa2a63353e9ad9fc"
+}
